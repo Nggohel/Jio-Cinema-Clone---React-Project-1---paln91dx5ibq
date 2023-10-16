@@ -1,0 +1,122 @@
+.main-carouselimage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #0d0e10 3%, rgba(13, 14, 16, 0) 18.6%),
+    linear-gradient(180.13deg, rgba(13, 14, 16, 0) 62.57%, #0d0e10 88.89%);
+}
+.carousel .main-carouselimage {
+  margin: 0;
+  height: 27rem;
+  width: 120rem;
+  border: 1px solid black;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+.main-carouselimage > div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  z-index: 1;
+}
+.carousel .main-carouselimage img {
+  object-fit: cover;
+  width: 45rem;
+}
+.slide {
+  text-align: start;
+}
+.carousel-control-prev-icon {
+  color: aqua;
+  background-color: darkgray;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.carousel-control-next-icon {
+  color: aqua;
+  background-color: darkgray;
+  border-radius: 50%;
+  padding: 4px;
+}
+h3 {
+  color: white;
+  font-weight: 800;
+  text-align: start;
+}
+p {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(122, 121, 121);
+  text-align: start;
+}
+.watchbutton {
+  border: none;
+  background-color: rgb(217, 0, 141);
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 9px 30px;
+  font-size: 13px;
+}
+.watchbutton:hover {
+  background-color: rgba(217, 0, 141, 0.704);
+}
+/* .control-dots {  
+    margin-bottom: 50px;
+    display: block;  
+} */
+@media (max-width: 768px) {
+  .main-carouselimage {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, #0d0e10 3%, rgba(13, 14, 16, 0) 18.6%),
+      linear-gradient(180.13deg, rgba(13, 14, 16, 0) 62.57%, #0d0e10 88.89%);
+  }
+  .carousel .main-carouselimage {
+    margin: 0;
+    height: 238px;
+    width: 412px;
+    border: 1px solid black;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .main-carouselimage > div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 13px;
+    z-index: 1;
+  }
+  .carousel .main-carouselimage img {
+    object-fit: cover;
+    width: 412px;
+  }
+  .carousel .control-next.control-arrow {
+    /* right: 13%; */
+  }
+  h3 {
+    font-size: 15px;
+  }
+  p {
+    font-size: 10px;
+
+    color: rgb(90, 90, 90);
+  }
+  .watchbutton {
+    border: none;
+    background-color: rgb(217, 0, 141);
+    font-weight: 700;
+    border-radius: 5px;
+    padding: 8px 30px;
+    font-size: 11px;
+  }
+  .watchbutton:hover {
+    background-color: rgba(217, 0, 141, 0.704);
+  }
+}

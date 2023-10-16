@@ -1,0 +1,54 @@
+.portraitcarousel {
+  width: 100%;
+}
+.potraittitle {
+  color: white;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  text-align: start;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.potraitsimg {
+  height: 18rem;
+  width: 185px;
+  margin-bottom: 10px;
+}
+.carousel .potraitsimg img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+div.carousel-root.portraitcarousel ul.slider.animated {
+  margin-left: -25% !important;
+}
+.potrait-icon-button {
+  background-color: black;
+  border: none;
+}
+.potrait-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 0.5rem;
+}
+@media (max-width: 768px) {
+  .potraittitle {
+    margin-left: 0.5rem;
+  }
+  .potraittitle h4 {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .potraitsimg {
+    height: 155px;
+    width: 116px;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  div.carousel-root.portraitcarousel li.slide {
+    min-width: 33% !important  ;
+  }
+}

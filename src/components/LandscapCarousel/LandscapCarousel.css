@@ -1,0 +1,59 @@
+.landscapecarousel {
+  width: 100%;
+}
+
+.landscapetitle {
+  color: white;
+  margin-left: 2rem;
+  text-align: start;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.landscape-img {
+  height: 150px;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.landscape-img img {
+  object-fit: cover;
+  height: 150px;
+  width: 300px;
+}
+div.carousel-root.landscapecarousel ul.slider.animated {
+  margin-left: -13% !important;
+}
+.landscape-icon-button {
+  background-color: black;
+  border: none;
+}
+.landscape-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 0.5rem;
+}
+@media (max-width: 768px) {
+  .landscapetitle {
+    margin-left: 0.5rem;
+  }
+  .landscapetitle h4 {
+    font-size: 20px;
+    font-weight: 800;
+  }
+  .landscape-img {
+    height: 100px;
+    width: 170px;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  div.carousel-root.landscapecarousel li.slide {
+    min-width: 45% !important  ;
+  }
+}

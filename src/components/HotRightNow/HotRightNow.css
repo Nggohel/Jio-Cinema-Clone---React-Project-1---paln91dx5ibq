@@ -1,0 +1,42 @@
+.hotrightnow {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.hotrightnow-title {
+  color: white;
+  text-align: start;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.carousel .hotrightnowimg {
+  height: 274px;
+  width: 274px;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.carousel .hotrightnowimg img {
+  object-fit: cover;
+}
+div.carousel-root.hotrightnow ul.slider.animated {
+  margin-left: -16% !important;
+}
+.control-dots {
+  display: none;
+}
+.hotrightnow .carousel.carousel-slider {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hotrightnow-title {
+    display: none;
+  }
+  .hotrightnow {
+    display: none;
+  }
+}
