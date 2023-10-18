@@ -1,5 +1,5 @@
 import React from "react";
-import "../../Styles/JiocinemaFooter.css";
+import "../../styles/JiocinemaFooter.css";
 function JiocinemaFooter() {
   return (
     <>

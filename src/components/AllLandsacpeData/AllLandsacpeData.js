@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../Styles/AllLandsacpeData.css";
+import "../../styles/AllLandsacpeData.css";
 
 function AllLandscapeData() {
   const [data, setData] = useState([]);

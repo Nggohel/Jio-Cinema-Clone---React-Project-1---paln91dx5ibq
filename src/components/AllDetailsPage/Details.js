@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import "../../Styles/Details.css";
+import "../../styles/Details.css";
 
 function Details() {
   const [data, setData] = useState([]);

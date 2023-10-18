@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import "../../Styles/EditProfile.css";
+import "../../styles/EditProfile.css";
 import { Link, useNavigate } from "react-router-dom";
 
 function EditProfile() {

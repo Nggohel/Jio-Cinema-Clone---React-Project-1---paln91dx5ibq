@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import "../../Styles/HotRightNow.css";
+import "../../styles/HotRightNow.css";
 function HotRightNow() {
   const [data, setData] = useState([]);
   const filterType = " short film";

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import { Row } from "react-bootstrap";
-import "../../Styles/MobileSearch.css";
+import "../../styles/MobileSearch.css";
 import PotraitCarousel from "../PotraitCarousel/PotraitCarousel";
 import ShortFilmPotraitCarousel from "../PotraitCarousel/ShortFilmPotraitCarousel";
 import TvShowPotraitCarousel from "../PotraitCarousel/TvShowPotraitCarousel";

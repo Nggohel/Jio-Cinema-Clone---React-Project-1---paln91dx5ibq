@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../../Styles/WatchList.css";
+import "../../styles/WatchList.css";
 function WatchList() {
   const [data, setData] = useState({});
 
