@@ -8,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import { Row } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
-import "../../Styles/JioCinemaNavBar.css";
+import "../../styles/JioCinemaNavBar.css";
 import LoginPage from "../Loginpage/LoginPage";
 
 function JioCinemaNavBar() {
