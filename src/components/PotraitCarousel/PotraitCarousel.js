@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import "../../syles/PotraitCarousel.css";
+import "../../styles/PotraitCarousel.css";
 
 function PotraitCarousel() {
   const [data, setData] = useState([]);
