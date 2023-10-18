@@ -96,7 +96,9 @@ function SingUp() {
           <span className="singupdetails">Terms of Use</span> and
           <p className="singup-para">
             acknowledge that you have read our
-            <span className="singupdetails">Privacy Policy</span>.
+            <a href="https://help.jiocinema.com/">
+              <span className="singupdetails">Privacy Policy</span>.
+            </a>
           </p>
         </p>
       </div>

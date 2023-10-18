@@ -79,7 +79,9 @@ function Login() {
           <span className="logindetails">Terms of Use</span> and
           <p className="login-para">
             acknowledge that you have read our
-            <span className="logindetails">Privacy Policy</span>.
+            <a href="https://help.jiocinema.com/">
+              <span className="logindetails">Privacy Policy</span>.
+            </a>
           </p>
         </p>
       </div>

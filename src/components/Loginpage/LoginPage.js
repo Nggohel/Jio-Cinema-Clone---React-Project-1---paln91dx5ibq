@@ -91,8 +91,9 @@ function LoginPage() {
                 <img className="editprofile-icon" src="images/download.png" />
               </button> */}
             </div>
-
-            <h6>Subcribe Now!</h6>
+            <Link to="/subscribe">
+              <h6>Subcribe Now!</h6>
+            </Link>
             <Link to="/watchlist">
               <h6 onClick={handleLoginClick}>My WatchList!</h6>
             </Link>
@@ -116,7 +117,9 @@ function LoginPage() {
           ""
         )}
         <div className="footer">
-          <h8 className="underline-pink">Privacy and T&C</h8>
+          <a href="https://help.jiocinema.com/">
+            <h8 className="underline-pink">Privacy and T&C</h8>
+          </a>
           <br />
           <h8 className="text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.

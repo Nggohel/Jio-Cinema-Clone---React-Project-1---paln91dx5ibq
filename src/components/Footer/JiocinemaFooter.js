@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/JiocinemaFooter.css";
+import { Link } from "react-router-dom";
 function JiocinemaFooter() {
   return (
     <>
@@ -8,13 +9,21 @@ function JiocinemaFooter() {
           <div>
             <h6>jiocinema</h6>
             <div className="footer-span">
-              <span>For You</span>
+              <Link to="/foryou">
+                <span>For You</span>
+              </Link>
               <br />
-              <span>Sport</span>
+              <Link to="/sport">
+                <span>Sport</span>
+              </Link>
               <br />
-              <span>Movie</span>
+              <Link to="/movies">
+                <span>Movie</span>
+              </Link>
               <br />
-              <span>Tv Show</span>
+              <Link to="/tvshow">
+                <span>Tv Show</span>
+              </Link>
               <br />
             </div>
           </div>
@@ -37,32 +46,44 @@ function JiocinemaFooter() {
           <div className="footer-connect">
             <h4>Connect With Us</h4>
             <button className="footer-connect-button">
-              <img src="images/facebook.svg" />
+              <a href="https://www.facebook.com">
+                <img src="images/facebook.svg" />
+              </a>
             </button>
             <button className="footer-connect-button">
-              <img src="images/twitter.svg" />
+              <a href="https://www.twitter.com">
+                <img src="images/twitter.svg" />
+              </a>
             </button>
             <button className="footer-connect-button">
-              <img src="images/instagram.svg" />
+              <a href="https://www.instagram.com">
+                <img src="images/instagram.svg" />
+              </a>
             </button>
             <button className="footer-connect-button">
-              <img src="images/youtube.svg" />
+              <a href="https://www.youtube.com">
+                <img src="images/youtube.svg" />
+              </a>
             </button>
           </div>
           <div className="footer-download">
             <h4>Download the App</h4>
             <div>
               <button className="footer-button-playstore">
-                <img
-                  src="images/googleplay.png"
-                  style={{ height: "100%", width: "100%" }}
-                />
+                <a href="https://play.google.com/">
+                  <img
+                    src="images/googleplay.png"
+                    style={{ height: "100%", width: "100%" }}
+                  />
+                </a>
               </button>
               <button className="footer-button-appstore">
-                <img
-                  src="images/applestore.png"
-                  style={{ height: "100%", width: "100%" }}
-                />
+                <a href="https://www.apple.com">
+                  <img
+                    src="images/applestore.png"
+                    style={{ height: "100%", width: "100%" }}
+                  />
+                </a>
               </button>
             </div>
           </div>
@@ -70,7 +91,9 @@ function JiocinemaFooter() {
       </div>
       <div className="lower-footer">
         <p>Copyright © 2023 Viacom18 Media PVT LTD.All rights reserved.</p>
-        <img src="images/jio-logo.png" className="lower-footer-img" />
+        <a href="https://www.jio.com">
+          <img src="images/jio-logo.png" className="lower-footer-img" />
+        </a>
       </div>
     </>
   );
