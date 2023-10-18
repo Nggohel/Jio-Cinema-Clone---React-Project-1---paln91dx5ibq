@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
-import "./LoginPage.css";
+import "../../Styles/LoginPage.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import "./Carousel.css";
+import "../../Styles/Carousel.css";
 
 function TvShowsCarousel() {
   const [data, setData] = useState([]);

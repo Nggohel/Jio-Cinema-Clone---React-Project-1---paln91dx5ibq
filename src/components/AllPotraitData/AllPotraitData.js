@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./AllPotraitData.css";
+import "../../Styles/AllPotraitData.css";
 
 function AllPotraitData() {
   const [data, setData] = useState({});

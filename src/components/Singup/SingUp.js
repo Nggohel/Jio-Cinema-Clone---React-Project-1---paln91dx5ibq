@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import "./SingUp.css";
+import "../../Styles/SingUp.css";
 import { Link, useNavigate } from "react-router-dom";
 
 function SingUp() {
