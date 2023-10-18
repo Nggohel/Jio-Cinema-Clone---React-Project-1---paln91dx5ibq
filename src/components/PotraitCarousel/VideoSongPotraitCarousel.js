@@ -6,6 +6,7 @@ import "../../Styles/PotraitCarousel.css";
 
 function VideoSongPotraitCarousel() {
   const [data, setData] = useState([]);
+
   const filterType = "video song";
 
   useEffect(() => {
