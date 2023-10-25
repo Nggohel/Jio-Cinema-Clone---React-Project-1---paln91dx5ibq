@@ -38,6 +38,7 @@ function Details() {
               className="image-container"
               style={{
                 backgroundImage: `url(${data.thumbnail})`,
+                objectFit: "cover",
               }}
             >
               <div className="deatils-card-position">

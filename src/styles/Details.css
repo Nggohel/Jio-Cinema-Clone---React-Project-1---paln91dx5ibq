@@ -3,7 +3,6 @@
   background-size: 100% 100%;
   width: 100%;
   height: 36rem;
-  object-fit: cover;
 }
 .deatils-main {
   margin-top: 24rem;
@@ -18,6 +17,8 @@
   color: white;
   font-size: 0.9rem;
   padding-right: 4rem;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+    -1px -1px 0 #000;
 }
 .details-data h4,
 h5 {
@@ -40,14 +41,17 @@ h5 {
   font-size: 0.9rem;
   font-weight: 800;
 }
+
 @media (max-width: 768px) {
   .image-container {
     height: 50rem;
   }
+
   .deatils-main {
     display: block;
     margin-left: 1.5rem;
   }
+
   .details-button {
     margin-left: 0px;
     margin-bottom: 10px;

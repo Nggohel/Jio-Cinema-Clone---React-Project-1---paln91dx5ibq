@@ -1,5 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
+import "../../styles/GetVideos.css";
 
 function GetVideos() {
   const { video_url } = useParams();
@@ -7,24 +8,33 @@ function GetVideos() {
   const videoRef = useRef(null);
 
   const id = decodedUrl.split("/").pop().split(".")[0];
+
   console.log(id);
 
-  async function addToWatchlist() {
+  const addToWatchlist = async () => {
     try {
-      let item = id;
+      let item = { showId: id };
+
+      const userInfo = JSON.parse(localStorage.getItem("user-info"));
+      // console.log(userInfo.token);
+
       const Header = {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGU1ZWYwZGJlZGNmNGY2MDIzOWIyNSIsImlhdCI6MTY5NTQ0MDYyNCwiZXhwIjoxNzI2OTc2NjI0fQ.YN3msPl6OFLpUM-ZYKeR0ONPb134QdlqQegDImvqCoc",
+        Authorization: `Bearer ${userInfo.token}`,
         projectID: "paln91dx5ibq",
       };
-      let addData = await fetch(`${process.env.REACT_APP_WATCHLIST_URL}`, {
-        method: "PATCH",
-        headers: Header,
-        body: JSON.stringify(item),
-      });
+      // const url = ${process.env.REACT_APP_WATCHLIST_URL}
+      let addData = await fetch(
+        "https://academics.newtonschool.co/api/v1/ott/watchlist/like",
+        {
+          method: "PATCH",
+          headers: Header,
+          body: JSON.stringify(item),
+        }
+      );
 
       let response = await addData.json();
       console.log(response);
+      console.log(response.data.shows);
       if (response.status == "success") {
         alert(response.message);
       } else {
@@ -33,32 +43,26 @@ function GetVideos() {
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   return (
     <>
       <video
+        className="video"
         ref={videoRef}
         src={decodedUrl}
         controls
-        style={{ maxWidth: "100%", height: "100%" }}
+        style={{ maxWidth: "100%" }}
       ></video>
       <div
+        className="getvideos"
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <button
-          style={{
-            marginBottom: "1rem",
-            color: "white",
-            backgroundColor: "blue",
-            borderRadius: "5px",
-          }}
-          onClick={addToWatchlist}
-        >
+        <button className="getvideosbtn" onClick={addToWatchlist}>
           Add to Watchlist
         </button>
       </div>

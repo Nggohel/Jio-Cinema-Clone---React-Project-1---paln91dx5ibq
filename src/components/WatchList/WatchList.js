@@ -7,14 +7,18 @@ function WatchList() {
   useEffect(() => {
     async function fetchData() {
       try {
+        const userInfo = JSON.parse(localStorage.getItem("user-info"));
+
+        const Header = {
+          Authorization: `Bearer ${userInfo.token}`,
+          projectID: "paln91dx5ibq",
+        };
+
         const response = await fetch(`${process.env.REACT_APP_WATCHLIST_URL}`, {
           method: "GET",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MGU1ZWYwZGJlZGNmNGY2MDIzOWIyNSIsImlhdCI6MTY5NTQ0MDYyNCwiZXhwIjoxNzI2OTc2NjI0fQ.YN3msPl6OFLpUM-ZYKeR0ONPb134QdlqQegDImvqCoc",
-            projectID: "paln91dx5ibq",
-          },
+          headers: Header,
         });
+
         const json = await response.json();
         setData(json.data.shows);
       } catch (error) {
