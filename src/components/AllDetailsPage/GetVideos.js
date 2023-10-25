@@ -54,14 +54,7 @@ function GetVideos() {
         controls
         style={{ maxWidth: "100%" }}
       ></video>
-      <div
-        className="getvideos"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="getvideos">
         <button className="getvideosbtn" onClick={addToWatchlist}>
           Add to Watchlist
         </button>
