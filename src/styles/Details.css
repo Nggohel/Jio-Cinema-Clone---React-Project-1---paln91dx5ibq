@@ -1,8 +1,10 @@
 .image-container {
   position: fixed;
-  background-size: 100% 100%;
-  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100vw;
   height: 36rem;
+  background-position: center;
 }
 .deatils-main {
   margin-top: 24rem;
