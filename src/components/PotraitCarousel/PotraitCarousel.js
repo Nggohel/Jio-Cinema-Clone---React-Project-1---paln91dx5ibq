@@ -4,14 +4,14 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/PotraitCarousel.css";
 
-function PotraitCarousel() {
+function PotraitCarousel({category ,title}) {
   const [data, setData] = useState([]);
-  const filterType = "movie";
+  // const filterType = "movie";
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_GET_DATA_URL}?filter={"type": "${filterType}"}&limit=10`,
+          `${process.env.REACT_APP_GET_DATA_URL}?filter={"type": "${category}"}&limit=10`,
           {
             method: "GET",
             headers: {
@@ -32,7 +32,7 @@ function PotraitCarousel() {
   return (
     <>
       <div className="potraittitle">
-        <h4>Movie</h4>
+        <h4>{title}</h4>
 
         <Link to="/Moredatapotrait">
           <button className="potrait-icon-button">
@@ -56,6 +56,7 @@ function PotraitCarousel() {
             <Link to={`/details/${item._id}`}>
               <div className="potraitsimg" key={index}>
                 <img
+                  loading="lazy"
                   src={item.thumbnail}
                   alt={`Image ${index}`}
                   style={{ width: "100%", height: "100%" }}

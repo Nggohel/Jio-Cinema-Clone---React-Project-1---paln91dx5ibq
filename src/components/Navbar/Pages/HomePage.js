@@ -8,11 +8,18 @@ import ShortFilmPotraitCarousel from "../../PotraitCarousel/ShortFilmPotraitCaro
 import VideoSongPotraitCarousel from "../../PotraitCarousel/VideoSongPotraitCarousel";
 import TrailerLandscapCarousel from "../../LandscapCarousel/TrailerLandscapCarousel";
 import WebSeriesLandscapCarousel from "../../LandscapCarousel/WebSeriesLandscapCarousel";
+import CardPortraitCarousel from "../../PotraitCarousel/CardPortraitCarousel";
+
 function HomePage() {
+  const arr = [
+    { category: "movie", title: "Movie", mode: "Potrait" },
+    { category: "trailer", title: "Trailer", mode: "Potrait" },
+    { category: "documentary", title: "Documentary", mode: "Landscape" },
+  ];
   return (
     <>
       <CarouselCard />
-      <HotRightNow />
+      {/* <HotRightNow />
       <TrailerLandscapCarousel />
       <PotraitCarousel />
       <TvShowPotraitCarousel />
@@ -21,7 +28,15 @@ function HomePage() {
       <ShortFilmPotraitCarousel />
       <LandscapCarousel />
       <PotraitCarousel />
-      <JiocinemaFooter />
+      <JiocinemaFooter /> */}
+
+      {arr.map((item, index) => (
+        <CardPortraitCarousel
+          category={item.category}
+          title={item.title}
+          mode={item.mode}
+        />
+      ))}
     </>
   );
 }

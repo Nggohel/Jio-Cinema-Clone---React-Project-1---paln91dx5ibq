@@ -38,7 +38,6 @@ function Details() {
               className="image-container"
               style={{
                 backgroundImage: `url(${data.thumbnail})`,
-                // objectFit: "fill",
               }}
             >
               <div className="deatils-card-position">
@@ -55,7 +54,6 @@ function Details() {
 
                     <p className="details-data">
                       {data.description}
-
                       <span>{data.description}</span>
                     </p>
                   </div>
