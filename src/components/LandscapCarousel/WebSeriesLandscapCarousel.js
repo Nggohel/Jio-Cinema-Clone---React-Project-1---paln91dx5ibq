@@ -4,15 +4,14 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/LandscapCarousel.css";
 
-function WebSeriesLandscapCarousel() {
+function WebSeriesLandscapCarousel({ category, title }) {
   const [data, setData] = useState([]);
-  const filterType = "web series";
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_GET_DATA_URL}?filter={"type": "${filterType}"}&limit=10`,
+          `${process.env.REACT_APP_GET_DATA_URL}?filter={"type": "${category}"}&limit=10`,
           {
             method: "GET",
             headers: {
@@ -32,7 +31,7 @@ function WebSeriesLandscapCarousel() {
   return (
     <>
       <div className="landscapetitle">
-        <h4> Web Series</h4>
+        <h4>{title}</h4>
         <Link to="/Moredatalandscape">
           <button className="landscape-icon-button">
             <img className="landscape-icon" src="images/download.png" />

@@ -4,7 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/LandscapCarousel.css";
 
-function TrailerLandscapCarousel() {
+function TrailerLandscapCarousel({ category, title }) {
   const [data, setData] = useState([]);
   const filterType = "trailer";
 
@@ -12,7 +12,7 @@ function TrailerLandscapCarousel() {
     async function fetchData() {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_GET_DATA_URL}?filter={"type": "${filterType}"}&limit=10`,
+          `${process.env.REACT_APP_GET_DATA_URL}?filter={"type": "${category}"}&limit=10`,
           {
             method: "GET",
             headers: {
@@ -32,7 +32,7 @@ function TrailerLandscapCarousel() {
   return (
     <>
       <div className="landscapetitle">
-        <h4>Trending Trailer</h4>
+        <h4>Trending {title}</h4>
         <Link to="/Moredatalandscape">
           <button className="landscape-icon-button">
             <img className="landscape-icon" src="images/download.png" />

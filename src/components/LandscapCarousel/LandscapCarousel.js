@@ -6,7 +6,6 @@ import "../../styles/LandscapCarousel.css";
 
 function LandscapCarousel({ category, title }) {
   const [data, setData] = useState([]);
-  // const filterType = "documentary";
 
   useEffect(() => {
     async function fetchData() {

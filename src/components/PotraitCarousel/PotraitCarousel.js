@@ -4,9 +4,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/PotraitCarousel.css";
 
-function PotraitCarousel({category ,title}) {
+function PotraitCarousel({ category, title }) {
   const [data, setData] = useState([]);
-  // const filterType = "movie";
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -28,6 +28,7 @@ function PotraitCarousel({category ,title}) {
     }
     fetchData();
   }, []);
+
   console.log(data);
   return (
     <>

@@ -4,15 +4,14 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/PotraitCarousel.css";
 
-function TvShowPotraitCarousel() {
+function TvShowPotraitCarousel({ category, title }) {
   const [data, setData] = useState([]);
-  const filterType = "tv show";
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_GET_DATA_URL}?filter={"type": "${filterType}"}&limit=10`,
+          `${process.env.REACT_APP_GET_DATA_URL}?filter={"type": "${category}"}&limit=10`,
           {
             method: "GET",
             headers: {
@@ -32,7 +31,7 @@ function TvShowPotraitCarousel() {
   return (
     <>
       <div className="potraittitle">
-        <h4>Tv Show</h4>
+        <h4>{title}</h4>
 
         <Link to="/Moredatapotrait">
           <button className="potrait-icon-button">
