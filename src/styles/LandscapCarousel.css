@@ -30,6 +30,8 @@ div.carousel-root.landscapecarousel ul.slider.animated {
 .landscape-icon-button {
   background-color: black;
   border: none;
+  color: white;
+  font-weight: 500;
 }
 .landscape-icon {
   height: 24px;

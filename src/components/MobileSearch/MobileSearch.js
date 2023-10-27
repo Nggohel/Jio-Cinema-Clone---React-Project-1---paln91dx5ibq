@@ -5,10 +5,6 @@ import Col from "react-bootstrap/Col";
 import { Row } from "react-bootstrap";
 import "../../styles/MobileSearch.css";
 import PotraitCarousel from "../PotraitCarousel/PotraitCarousel";
-import ShortFilmPotraitCarousel from "../PotraitCarousel/ShortFilmPotraitCarousel";
-import TvShowPotraitCarousel from "../PotraitCarousel/TvShowPotraitCarousel";
-import VideoSongPotraitCarousel from "../PotraitCarousel/VideoSongPotraitCarousel";
-import LandscapCarousel from "../LandscapCarousel/LandscapCarousel";
 
 function MobileSearchPage() {
   const [searchValue, setSearchValue] = useState("");
@@ -37,11 +33,7 @@ function MobileSearchPage() {
           />
         </Col>
       </Row>
-      <PotraitCarousel />
-      <ShortFilmPotraitCarousel />
-      <LandscapCarousel />
-      <TvShowPotraitCarousel />
-      <VideoSongPotraitCarousel />
+      <PotraitCarousel category={category} title={title} />
     </>
   );
 }

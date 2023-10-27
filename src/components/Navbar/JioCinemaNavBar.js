@@ -10,6 +10,7 @@ import { Row } from "react-bootstrap";
 import Image from "react-bootstrap/Image";
 import "../../styles/JioCinemaNavBar.css";
 import LoginPage from "../Loginpage/LoginPage";
+import { LogoUrl } from "../../Data/LogoUrl";
 
 function JioCinemaNavBar() {
   const [expand, setExpand] = useState(false);
@@ -75,7 +76,7 @@ function JioCinemaNavBar() {
           <Container className="">
             <div className="">
               <Nav.Link as={Link} to="/" className="navjiocinema">
-                <img src="images/logo.webp" className="jiocinema-logo" />
+                <img src={LogoUrl.jioCinemaLogo} className="jiocinema-logo" />
                 JioCinema
               </Nav.Link>
             </div>
@@ -115,7 +116,7 @@ function JioCinemaNavBar() {
               className="mobile-search-icon"
             >
               <img
-                src="images/downloadsearch-icon.png"
+                src={LogoUrl.searchIconLogo}
                 alt="search-icon-mobile"
                 onClick={handleMobileSearchIcon}
               />
@@ -134,7 +135,7 @@ function JioCinemaNavBar() {
                 </Col>
               </Row>
               <Image
-                src="images/man.png"
+                src={LogoUrl.avtarLogo}
                 width="35"
                 height="35"
                 roundedCircle
@@ -167,7 +168,7 @@ function JioCinemaNavBar() {
                 News
               </Nav.Link>
               <Image
-                src="images/man.png"
+                src={LogoUrl.avtarLogo}
                 width="35"
                 height="35"
                 roundedCircle

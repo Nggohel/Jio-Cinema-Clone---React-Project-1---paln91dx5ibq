@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "../../styles/Login.css";
+import { postApiData } from "../../Api/Api";
+import { ApiUrl } from "../../Data/ApiUrl";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -10,34 +12,21 @@ function Login() {
 
   const navigate = useNavigate();
 
-  async function JiocinemaLogin() {
-    try {
-      let item = { email: email, password: password, appType: "ott" };
-      const Header = {
-        "Content-Type": "application/json",
-        projectID: "paln91dx5ibq",
-      };
-      let getData = await fetch(`${process.env.REACT_APP_LOGIN_URL}`, {
-        method: "POST",
-        headers: Header,
-        body: JSON.stringify(item),
-      });
+  const JiocinemaLogin = async () => {
+    let item = { email: email, password: password, appType: "ott" };
 
-      let response = await getData.json();
-      console.log(response);
-      if (response.status == "success") {
-        localStorage.setItem("user-info", JSON.stringify(response));
-        alert("You are Logging in Successfully");
-        setEmail("");
-        setPassword("");
-        navigate("/foryou");
-      } else {
-        alert(response.message);
-      }
-    } catch (e) {
-      console.log(e);
+    const getLoginData = await postApiData(`${ApiUrl["Login"]}`, item);
+
+    if (getLoginData.status === "success") {
+      localStorage.setItem("user-info", JSON.stringify(getLoginData));
+      alert("You are Logging in Successfully");
+      setEmail("");
+      setPassword("");
+      navigate("/foryou");
+    } else {
+      alert(getLoginData.message);
     }
-  }
+  };
 
   return ReactDOM.createPortal(
     <>

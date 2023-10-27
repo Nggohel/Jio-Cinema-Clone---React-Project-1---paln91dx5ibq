@@ -5,7 +5,7 @@ import Image from "react-bootstrap/Image";
 import "../../styles/LoginPage.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-
+import { LogoUrl } from "../../Data/LogoUrl";
 function LoginPage() {
   const [isCardMoved, setIsCardMoved] = useState(false);
 
@@ -32,7 +32,7 @@ function LoginPage() {
       <div className="parentcard">
         <div className="carddiv">
           <Image
-            src="images/man.png"
+            src={LogoUrl.avtarLogo}
             width="65"
             height="65"
             roundedCircle
@@ -69,7 +69,7 @@ function LoginPage() {
               )}
               <Card.Body className="innercard">
                 <Image
-                  src="images/man.png"
+                  src={LogoUrl.avtarLogo}
                   width="35"
                   height="35"
                   roundedCircle
@@ -87,9 +87,6 @@ function LoginPage() {
               <Link to="/editprofile">
                 <h6 onClick={handleLoginClick}>Edit Profile</h6>
               </Link>
-              {/* <button className="editprofile-icon-button">
-                <img className="editprofile-icon" src="images/download.png" />
-              </button> */}
             </div>
             <Link to="/subscribe">
               <h6>Subcribe Now!</h6>

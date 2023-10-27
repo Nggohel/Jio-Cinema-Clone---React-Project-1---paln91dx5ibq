@@ -6,16 +6,10 @@
   width: 2rem;
 }
 .mainnav {
-  background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
 }
-.mainnav-mobile {
-  /* border: 2px solid aqua; */
-}
-
 .navjiocinema {
   color: white;
   font-weight: 750;
@@ -196,4 +190,7 @@ a.tvshow.nav-link {
     align-items: start;
     justify-content: start;
   }
+}
+nav:nth-child(2) {
+  display: none !important;
 }

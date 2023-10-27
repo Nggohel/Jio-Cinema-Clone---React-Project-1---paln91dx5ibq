@@ -1,6 +1,8 @@
 import React from "react";
 import "../../styles/JiocinemaFooter.css";
 import { Link } from "react-router-dom";
+import { LogoUrl } from "../../Data/LogoUrl";
+
 function JiocinemaFooter() {
   return (
     <>
@@ -47,22 +49,22 @@ function JiocinemaFooter() {
             <h4>Connect With Us</h4>
             <button className="footer-connect-button">
               <a href="https://www.facebook.com">
-                <img src="images/facebook.svg" />
+                <img src={LogoUrl.facebookLogo} />
               </a>
             </button>
             <button className="footer-connect-button">
               <a href="https://www.twitter.com">
-                <img src="images/twitter.svg" />
+                <img src={LogoUrl.twitterLogo} />
               </a>
             </button>
             <button className="footer-connect-button">
               <a href="https://www.instagram.com">
-                <img src="images/instagram.svg" />
+                <img src={LogoUrl.instagramLogo} />
               </a>
             </button>
             <button className="footer-connect-button">
               <a href="https://www.youtube.com">
-                <img src="images/youtube.svg" />
+                <img src={LogoUrl.youtubeLogo} />
               </a>
             </button>
           </div>
@@ -72,7 +74,7 @@ function JiocinemaFooter() {
               <button className="footer-button-playstore">
                 <a href="https://play.google.com/">
                   <img
-                    src="images/googleplay.png"
+                    src={LogoUrl.googleplayLogo}
                     style={{ height: "100%", width: "100%" }}
                   />
                 </a>
@@ -80,7 +82,7 @@ function JiocinemaFooter() {
               <button className="footer-button-appstore">
                 <a href="https://www.apple.com">
                   <img
-                    src="images/applestore.png"
+                    src={LogoUrl.applestoreLogo}
                     style={{ height: "100%", width: "100%" }}
                   />
                 </a>
@@ -92,7 +94,7 @@ function JiocinemaFooter() {
       <div className="lower-footer">
         <p>Copyright © 2023 Viacom18 Media PVT LTD.All rights reserved.</p>
         <a href="https://www.jio.com">
-          <img src="images/jio-logo.png" className="lower-footer-img" />
+          <img src={LogoUrl.jioCinemaLogo} className="lower-footer-img" />
         </a>
       </div>
     </>

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../styles/GetVideos.css";
+import { patchApiData } from "../../Api/Api";
+import { ApiUrl } from "../../Data/ApiUrl";
 
 function GetVideos() {
   const { video_url } = useParams();
@@ -12,36 +14,18 @@ function GetVideos() {
   console.log(id);
 
   const addToWatchlist = async () => {
-    try {
-      let item = { showId: id };
+    const GetData = JSON.parse(localStorage.getItem("user-info"));
+    let item = { showId: id };
 
-      const userInfo = JSON.parse(localStorage.getItem("user-info"));
-      // console.log(userInfo.token);
-
-      const Header = {
-        Authorization: `Bearer ${userInfo.token}`,
-        projectID: "paln91dx5ibq",
-      };
-      // const url = ${process.env.REACT_APP_WATCHLIST_URL}
-      let addData = await fetch(
-        "https://academics.newtonschool.co/api/v1/ott/watchlist/like",
-        {
-          method: "PATCH",
-          headers: Header,
-          body: JSON.stringify(item),
-        }
-      );
-
-      let response = await addData.json();
-      console.log(response);
-      console.log(response.data.shows);
-      if (response.status == "success") {
-        alert(response.message);
-      } else {
-        alert(response.message);
-      }
-    } catch (e) {
-      console.log(e);
+    const getUpdatedData = await patchApiData(
+      `${ApiUrl["Watchlist"]}`,
+      item,
+      GetData
+    );
+    if (getUpdatedData.status == "success") {
+      alert(getUpdatedData.message);
+    } else {
+      alert(getUpdatedData.message);
     }
   };
 

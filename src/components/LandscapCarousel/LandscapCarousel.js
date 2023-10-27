@@ -3,30 +3,36 @@ import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/LandscapCarousel.css";
+import { fetchApiData } from "../../Api/Api";
+import { ApiUrl } from "../../Data/ApiUrl";
+import { LogoUrl } from "../../Data/LogoUrl";
 
 function LandscapCarousel({ category, title }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          `${process.env.REACT_APP_GET_DATA_URL}?filter={"type": "${category}"}&limit=10`,
-          {
-            method: "GET",
-            headers: {
-              projectID: "paln91dx5ibq",
-            },
-          }
-        );
-        const json = await response.json();
-        setData(json.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+    (async () => {
+      const getData = await fetchApiData(
+        `${ApiUrl["ListShows"]}?filter={"type": "${category}"}&limit=1000`
+      );
+      if (getData.status == "success") {
+        setData(getData.data);
+      } else {
+        alert(getData.message);
       }
-    }
-    fetchData();
-  }, []);
+    })();
+  }, [category]);
+
+  // useEffect(async () => {
+  //   const getData = await fetchApiData(
+  //     `${ApiUrl["ListShows"]}?filter={"type": "${category}"}&limit=10`
+  //   );
+  //   if (getData.status == "success") {
+  //     setData(getData.data);
+  //   } else {
+  //     alert(getData.message);
+  //   }
+  // }, []);
 
   return (
     <>
@@ -34,7 +40,8 @@ function LandscapCarousel({ category, title }) {
         <h4> {title}</h4>
         <Link to="/Moredatalandscape">
           <button className="landscape-icon-button">
-            <img className="landscape-icon" src="images/download.png" />
+            view All
+            <img className="landscape-icon" src={LogoUrl.rightSideLogo} />
           </button>
         </Link>
       </div>

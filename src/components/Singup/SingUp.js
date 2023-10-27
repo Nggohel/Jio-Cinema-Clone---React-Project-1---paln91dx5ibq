@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import "../../styles/SingUp.css";
 import { Link, useNavigate } from "react-router-dom";
-
+import { postApiData } from "../../Api/Api";
+import { ApiUrl } from "../../Data/ApiUrl";
 function SingUp() {
   const [name, setName] = useState("");
 
@@ -12,41 +13,27 @@ function SingUp() {
 
   const navigate = useNavigate();
 
-  async function JiocinemaSingUP() {
-    try {
-      let item = {
-        name: name,
-        email: email,
-        password: password,
-        appType: "ott",
-      };
-      const Header = {
-        "Content-Type": "application/json",
-        projectID: "paln91dx5ibq",
-      };
-      let getData = await fetch(`${process.env.REACT_APP_SINGUP_URL}`, {
-        method: "POST",
-        headers: Header,
-        body: JSON.stringify(item),
-      });
+  const JiocinemaSingUP = async () => {
+    let item = {
+      name: name,
+      email: email,
+      password: password,
+      appType: "ott",
+    };
 
-      let response = await getData.json();
-      console.log(response);
-      if (response.status == "success") {
-        alert("You SingUp in Successfully");
-        setName("");
-        setEmail("");
-        setPassword("");
-        navigate("/login");
-      } else {
-        alert(response.message);
-      }
+    const getSingUPData = await postApiData(`${ApiUrl["Signup"]}`, item);
 
-      localStorage.setItem("user-info", JSON.stringify(response));
-    } catch (e) {
-      console.log(e);
+    if (getSingUPData.status == "success") {
+      alert("You SingUp in Successfully");
+      setName("");
+      setEmail("");
+      setPassword("");
+      navigate("/login");
+    } else {
+      alert(getSingUPData.message);
     }
-  }
+    localStorage.setItem("user-info", JSON.stringify(getSingUPData));
+  };
 
   return ReactDOM.createPortal(
     <>

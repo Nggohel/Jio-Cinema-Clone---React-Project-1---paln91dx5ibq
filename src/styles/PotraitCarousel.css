@@ -4,7 +4,7 @@
 .potraittitle {
   color: white;
   margin-left: 2rem;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   text-align: start;
   font-weight: 700;
   display: flex;
@@ -27,6 +27,8 @@ div.carousel-root.portraitcarousel ul.slider.animated {
 .potrait-icon-button {
   background-color: black;
   border: none;
+  color: white;
+  font-weight: 500;
 }
 .potrait-icon {
   height: 24px;

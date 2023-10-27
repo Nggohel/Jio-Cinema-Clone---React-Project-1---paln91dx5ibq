@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import JioCinemaNavBar from "./JioCinemaNavBar";
 import HomePage from "./Pages/HomePage";
 import SubscribePage from "./Pages/SubscribePage";
 import SportPage from "./Pages/SportPage";
 import MoviesPage from "./Pages/MoviesPage";
 import NewsPage from "./Pages/NewsPage";
-import PotraitCard from "../AllPotraitData/PotraitCard";
+import AllPotraitData from "../AllPotraitData/AllPotraitData";
 import LandscapeCard from "../AllLandsacpeData/LandscapeCard";
 import Login from "../Login/Login";
 import TvshowPage from "./Pages/TvshowPage";
@@ -17,11 +17,14 @@ import Searchpage from "./Pages/Searchpage";
 import GetVideos from "../AllDetailsPage/GetVideos";
 import WatchList from "../WatchList/WatchList";
 import MobileSearchPage from "../MobileSearch/MobileSearch";
+import AllData from "../AllDetailsPage/AllData";
+
 function MainNavigation() {
   return (
     <>
       <Router>
         <JioCinemaNavBar />
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/subscribe" element={<SubscribePage />} />
@@ -31,10 +34,13 @@ function MainNavigation() {
           <Route path="/tvshow" element={<TvshowPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/search/:query" element={<Searchpage />} />
-          <Route path="/search" element={<PotraitCard />} />
+          <Route path="/search" element={<AllPotraitData />} />
           <Route path="/mobilesearch" element={<MobileSearchPage />} />
           <Route path="/mobilesearch/:query" element={<Searchpage />} />
-          <Route path="/Moredatapotrait" element={<PotraitCard />} />
+          <Route
+            path="/Moredatapotrait/:itemcategery/:itemtitle"
+            element={<AllPotraitData />}
+          />
           <Route path="/backtohome" element={<HomePage />} />
           <Route path="/Moredatalandscape" element={<LandscapeCard />} />
           <Route path="/back" element={<HomePage />} />
@@ -44,6 +50,7 @@ function MainNavigation() {
           <Route path="/watchlist" element={<WatchList />} />
           <Route path="/details/:itemId" element={<Details />} />
           <Route path="/gettingvideo/:video_url" element={<GetVideos />} />
+          <Route path="/carouseldata" element={<AllData />} />
         </Routes>
       </Router>
     </>

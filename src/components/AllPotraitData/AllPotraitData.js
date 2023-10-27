@@ -1,30 +1,48 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../styles/AllPotraitData.css";
-
+import { fetchApiData } from "../../Api/Api";
+import { ApiUrl } from "../../Data/ApiUrl";
+import { LogoUrl } from "../../Data/LogoUrl";
 function AllPotraitData() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const { itemcategery } = useParams();
+  const { itemtitle } = useParams();
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          `${process.env.REACT_APP_GET_DATA_URL}?limit=120`,
-          {
-            method: "GET",
-            headers: {
-              projectID: "paln91dx5ibq",
-            },
-          }
-        );
-        const json = await response.json();
-        console.log(json.data);
-        setData(json.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+    (async () => {
+      const getData = await fetchApiData(
+        `${ApiUrl["ListShows"]}?filter={"type": "${itemcategery}"}&page=${page}&limit=20`
+      );
+      if (getData.status == "success") {
+        setData((prev) => [...prev, ...getData.data]);
+      } else {
+        alert(getData.message);
       }
+    })();
+  }, [page]);
+
+  const handelInfiniteScroll = async () => {
+    // console.log("scrollHeight" + document.documentElement.scrollHeight);
+    // console.log("innerHeight" + window.innerHeight);
+    // console.log("scrollTop" + document.documentElement.scrollTop);
+    try {
+      if (
+        window.innerHeight + document.documentElement.scrollTop + 10 >=
+        document.documentElement.scrollHeight
+      ) {
+        setPage((prev) => prev + 1);
+      }
+    } catch (error) {
+      console.log(error);
     }
-    fetchData(data);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handelInfiniteScroll);
+    return () => window.removeEventListener("scroll", handelInfiniteScroll);
   }, []);
 
   return (
@@ -32,10 +50,10 @@ function AllPotraitData() {
       <div className="allportrait-title">
         <Link to="/backtohome">
           <button className="allportrait-button">
-            <img className="allportrait-icon" src="images/left-side.png" />
+            <img className="allportrait-icon" src={LogoUrl.leftSideArrowLogo} />
           </button>
         </Link>
-        <h4 className="allportrait-name">All Options.... </h4>
+        <h4 className="allportrait-name">All {itemtitle}.... </h4>
       </div>
 
       <div className="allportrait-card">

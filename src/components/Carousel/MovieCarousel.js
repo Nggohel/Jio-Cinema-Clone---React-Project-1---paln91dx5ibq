@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Button from "react-bootstrap/Button";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/Carousel.css";
+import { ImagesUrl } from "../../Data/ImagesUrl";
 
 function MovieCarousel() {
   return (
@@ -19,42 +21,54 @@ function MovieCarousel() {
         <a>
           <img
             className="main-img"
-            src="images/movies-1.webp"
+            src={ImagesUrl.movieheader_1}
             alt="headerimage"
           />
         </a>
         <div>
           <h3 style={{ color: "white" }}>MEIN, MEHMOOD</h3>
           <p style={{ color: "darkgray" }}>Hindi Drama U/A 7+</p>
+          <Button variant="primary" className="watchbutton">
+            WATCH
+          </Button>
         </div>
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src="images/movies-2.webp" alt="headerimage" />
+          <img className="" src={ImagesUrl.movieheader_2} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white", fontSize: 35 }}>
             Sautrashtra vs Rest of India,Day 3
           </h3>
           <p style={{ color: "white" }}></p>
+          <Button variant="primary" className="watchbutton">
+            WATCH
+          </Button>
         </div>
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src="images/movies-3.webp" alt="headerimage" />
+          <img className="" src={ImagesUrl.movieheader_3} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>Rat In The Kitchen</h3>
           <p style={{ color: "white" }}>Hindi Thriller U/A 13+</p>
+          <Button variant="primary" className="watchbutton">
+            WATCH
+          </Button>
         </div>
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src="images/movies-4.webp" alt="headerimage" />
+          <img className="" src={ImagesUrl.movieheader_4} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white", fontSize: 35 }}>FC Goa 1-0 Punjab FC</h3>
           <p style={{ color: "white" }}></p>
+          <Button variant="primary" className="watchbutton">
+            WATCH
+          </Button>
         </div>
       </div>
     </Carousel>

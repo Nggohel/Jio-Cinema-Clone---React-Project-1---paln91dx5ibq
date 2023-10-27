@@ -2,32 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../styles/Details.css";
+import { fetchApiData } from "../../Api/Api";
+import { ApiUrl } from "../../Data/ApiUrl";
 
 function Details() {
   const [data, setData] = useState([]);
   const { itemId } = useParams();
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const url = `${process.env.REACT_APP_GET_DATA_URL}/${itemId}`;
-        const getData = await fetch(url, {
-          method: "GET",
-          headers: {
-            projectID: "paln91dx5ibq",
-          },
-        });
-        const json = await getData.json();
-        console.log(json.data);
-        setData(json.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+    (async () => {
+      const getData = await fetchApiData(`${ApiUrl["ListShows"]}/${itemId}`);
+      if (getData.status == "success") {
+        setData(getData.data);
+      } else {
+        alert(getData.message);
       }
-    }
-    fetchData(data);
+    })();
   }, [itemId]);
-
-  console.log(data);
 
   return (
     <>

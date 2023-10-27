@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PotraitCard from "../../AllPotraitData/PotraitCard";
+import AllPotraitData from "../../AllPotraitData/AllPotraitData";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Searchpage() {
@@ -31,7 +31,7 @@ function Searchpage() {
   return (
     <>
       {query.trim() === "" ? (
-        <PotraitCard />
+        <AllPotraitData />
       ) : (
         <div className="allportrait-card">
           {data.length > 0 ? (

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import "../../styles/EditProfile.css";
 import { Link, useNavigate } from "react-router-dom";
+import { patchApiData } from "../../Api/Api";
+import { ApiUrl } from "../../Data/ApiUrl";
 
 function EditProfile() {
   const [name, setName] = useState("");
@@ -14,43 +16,31 @@ function EditProfile() {
 
   const navigate = useNavigate();
 
-  const GetData = JSON.parse(localStorage.getItem("user-info"));
+  const JiocinemaEdit = async () => {
+    const GetData = JSON.parse(localStorage.getItem("user-info"));
+    let item = {
+      name: name,
+      email: GetData.data.email,
+      address: [{ street: address }],
+    };
 
-  async function JiocinemaEdit() {
-    try {
-      let item = {
-        name: name,
-        email: GetData.data.email,
-        address: [{ street: address }],
-      };
-      const Header = {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${GetData.token}`,
-        projectID: "paln91dx5ibq",
-      };
-      let getData = await fetch(`${process.env.REACT_APP_EDITPROFILE_URL}`, {
-        method: "PATCH",
-        headers: Header,
-        body: JSON.stringify(item),
-      });
-
-      let response = await getData.json();
-      console.log(response);
-      if (response.status == "success") {
-        alert("Your is Successfully updated!!!");
-        setName("");
-        setNumber("");
-        setAddress("");
-        GetData.data.name = response.data.user.name;
-        localStorage.setItem("user-info", JSON.stringify(GetData));
-        navigate("/foryou");
-      } else {
-        alert(response.message);
-      }
-    } catch (e) {
-      console.log(e);
+    const getUpdatedData = await patchApiData(
+      `${ApiUrl["EditProfile"]}`,
+      item,
+      GetData
+    );
+    if (getUpdatedData.status == "success") {
+      alert("Your is Successfully updated!!!");
+      setName("");
+      setNumber("");
+      setAddress("");
+      GetData.data.name = getUpdatedData.data.user.name;
+      localStorage.setItem("user-info", JSON.stringify(GetData));
+      navigate("/foryou");
+    } else {
+      alert(getUpdatedData.message);
     }
-  }
+  };
 
   async function handleProfileImageUpdate() {
     alert("currently working on this part");
