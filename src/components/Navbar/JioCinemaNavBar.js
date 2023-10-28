@@ -180,6 +180,7 @@ function JioCinemaNavBar() {
           </Navbar>
         </Container>
       </Navbar>
+
       {expand ? <LoginPage /> : ""}
       {mobileexpand ? <LoginPage /> : ""}
     </>

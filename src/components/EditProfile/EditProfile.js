@@ -4,6 +4,7 @@ import "../../styles/EditProfile.css";
 import { Link, useNavigate } from "react-router-dom";
 import { patchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
+import { LogoUrl } from "../../Data/LogoUrl";
 
 function EditProfile() {
   const [name, setName] = useState("");
@@ -53,7 +54,7 @@ function EditProfile() {
           <Link to="/back">
             <button className="editprofile-button">
               <img
-                src="images/icons8-arrow-back.png"
+                src={LogoUrl.backarrowLogo}
                 className="editprofile-button-image"
               />
             </button>
@@ -63,7 +64,7 @@ function EditProfile() {
         <div className="editprofile-form">
           <div className="edit-image">
             <img
-              src="images/man.png"
+              src={LogoUrl.avtarLogo}
               width="65"
               height="65"
               alt="User Avatar"

@@ -7,11 +7,8 @@ body {
   scrollbar-color: red yellow !important;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  overflow: hidden;
   background-color: black;
   overflow-y: auto;
-
   width: 100%;
   height: 100%;
 }

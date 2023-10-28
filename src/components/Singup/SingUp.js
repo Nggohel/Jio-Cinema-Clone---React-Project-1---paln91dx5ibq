@@ -4,6 +4,8 @@ import "../../styles/SingUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { postApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
+import { LogoUrl } from "../../Data/LogoUrl";
+
 function SingUp() {
   const [name, setName] = useState("");
 
@@ -42,7 +44,7 @@ function SingUp() {
           <Link to="/back">
             <button className="singup-button">
               <img
-                src="images/icons8-arrow-back.png"
+                src={LogoUrl.backarrowLogo}
                 className="singup-button-image"
               />
             </button>

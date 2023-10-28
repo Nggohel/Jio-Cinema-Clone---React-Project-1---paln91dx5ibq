@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import "../../styles/Login.css";
 import { postApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
+import { LogoUrl } from "../../Data/LogoUrl";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -23,6 +24,7 @@ function Login() {
       setEmail("");
       setPassword("");
       navigate("/foryou");
+      document.body.style.overflow = "scroll";
     } else {
       alert(getLoginData.message);
     }
@@ -34,10 +36,7 @@ function Login() {
         <div className="login">
           <Link to="/back">
             <button className="login-button">
-              <img
-                src="images/icons8-arrow-back.png"
-                className="login-button-image"
-              />
+              <img src={LogoUrl.backarrowLogo} className="login-button-image" />
             </button>
           </Link>
           <h4 style={{ color: "white" }}>Login to continue</h4>

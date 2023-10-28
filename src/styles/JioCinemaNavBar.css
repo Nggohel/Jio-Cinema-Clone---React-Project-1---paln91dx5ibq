@@ -125,8 +125,14 @@ a.tvshow.nav-link {
   align-items: end;
   justify-content: end;
 }
+nav:nth-child(2) {
+  display: none !important;
+}
 
 @media (max-width: 768px) {
+  nav:nth-child(2) {
+    display: block !important;
+  }
   .mobile-top-nav {
     display: flex;
     align-items: center;
@@ -190,7 +196,4 @@ a.tvshow.nav-link {
     align-items: start;
     justify-content: start;
   }
-}
-nav:nth-child(2) {
-  display: none !important;
 }
