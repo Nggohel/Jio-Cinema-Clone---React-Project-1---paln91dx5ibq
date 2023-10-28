@@ -1,10 +1,11 @@
 import CarouselCard from "../../Carousel/Carousel";
+import { ImagesUrl } from "../../../Data/ImagesUrl";
 
 function SubscribePage() {
   return (
     <>
       <CarouselCard />
-      <img src="images/Subscription-image.jpg" style={{ marginTop: "-40px" }} />
+      <img src={ImagesUrl.SubscribePageJpg} style={{ marginTop: "-40px" }} />
     </>
   );
 }

@@ -28,6 +28,8 @@ import tvShowsheader_2 from "../Assets/images/tvshows-2.jpg";
 import tvShowsheader_3 from "../Assets/images/tvshows-3.webp";
 import tvShowsheader_4 from "../Assets/images/tvshows-4.webp";
 
+import SubscribePageJpg from "../Assets/images/Subscription-image.jpg";
+
 export const ImagesUrl = {
   header_1,
   header_2,
@@ -54,4 +56,5 @@ export const ImagesUrl = {
   tvShowsheader_2,
   tvShowsheader_3,
   tvShowsheader_4,
+  SubscribePageJpg,
 };

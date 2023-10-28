@@ -4,18 +4,35 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/Carousel.css";
 import { ImagesUrl } from "../../Data/ImagesUrl";
+import { Link } from "react-router-dom";
 
 function SubscribeCarousel() {
+  const totalSlides = 9;
+  const interval = 4500;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+    }, interval);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [totalSlides, interval]);
   return (
     <Carousel
-      showArrows={true} // Show navigation arrows
-      showStatus={false} // Hide status indicator
-      showThumbs={false} // Hide thumbnail images
-      infiniteLoop={true} // Enable infinite loop
-      centerMode={true} // Center the current slide
-      centerSlidePercentage={100} // Show one items at a time
+      showArrows={true}
+      showStatus={false}
+      showThumbs={false}
+      infiniteLoop={true}
+      centerMode={true}
+      centerSlidePercentage={100}
       emulateTouch={false}
       showIndicators={true}
+      selectedItem={currentIndex}
+      onChange={(index) => setCurrentIndex(index)}
     >
       <div className="main-carouselimage">
         <a>
@@ -26,11 +43,13 @@ function SubscribeCarousel() {
           />
         </a>
         <div>
-          <h3 style={{ color: "white" }}>MEIN, MEHMOOD</h3>
-          <p style={{ color: "darkgray" }}>Hindi Drama U/A 7+</p>
-          <Button variant="primary" className="watchbutton">
-            WATCH
-          </Button>
+          <h3 style={{ color: "white" }}>SMAT STORIES</h3>
+          <p style={{ color: "darkgray" }}>Cricket Update U/A 7+</p>
+          <Link to="/carouseldata">
+            <Button variant="primary" className="watchbutton">
+              WATCH
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="main-carouselimage">
@@ -39,12 +58,14 @@ function SubscribeCarousel() {
         </a>
         <div>
           <h3 style={{ color: "white", fontSize: 35 }}>
-            Sautrashtra vs Rest of India,Day 3
+            Best Of IndianFootBall
           </h3>
-          <p style={{ color: "white" }}></p>
-          <Button variant="primary" className="watchbutton">
-            WATCH
-          </Button>
+          <p style={{ color: "white" }}>FootBall U/A 7+</p>
+          <Link to="/carouseldata">
+            <Button variant="primary" className="watchbutton">
+              WATCH
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="main-carouselimage">
@@ -52,11 +73,13 @@ function SubscribeCarousel() {
           <img className="" src={ImagesUrl.spotheader_3} alt="headerimage" />
         </a>
         <div>
-          <h3 style={{ color: "white" }}>Rat In The Kitchen</h3>
-          <p style={{ color: "white" }}>Hindi Thriller U/A 13+</p>
-          <Button variant="primary" className="watchbutton">
-            WATCH
-          </Button>
+          <h3 style={{ color: "white" }}>SMAT MATTERS</h3>
+          <p style={{ color: "white" }}>Hindi Cricket U/A 13+</p>
+          <Link to="/carouseldata">
+            <Button variant="primary" className="watchbutton">
+              WATCH
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="main-carouselimage">
@@ -64,11 +87,13 @@ function SubscribeCarousel() {
           <img className="" src={ImagesUrl.spotheader_4} alt="headerimage" />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>FC Goa 1-0 Punjab FC</h3>
-          <p style={{ color: "white" }}></p>
-          <Button variant="primary" className="watchbutton">
-            WATCH
-          </Button>
+          <h3 style={{ color: "white", fontSize: 35 }}>Akashvani</h3>
+          <p style={{ color: "white" }}>Cricket Discussion with Experts</p>
+          <Link to="/carouseldata">
+            <Button variant="primary" className="watchbutton">
+              WATCH
+            </Button>
+          </Link>
         </div>
       </div>
     </Carousel>

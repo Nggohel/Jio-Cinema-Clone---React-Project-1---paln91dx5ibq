@@ -28,10 +28,10 @@
 }
 .carousel .main-carouselimage img {
   object-fit: fill;
-  width: 80rem;
+  width: 55rem;
   height: 30rem;
   padding-bottom: 2rem;
-  margin-right: 560px;
+  margin-right: 120px;
 }
 .slide {
   text-align: start;

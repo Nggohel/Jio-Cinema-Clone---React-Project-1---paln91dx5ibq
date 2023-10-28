@@ -4,18 +4,34 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/Carousel.css";
 import { ImagesUrl } from "../../Data/ImagesUrl";
-
+import { Link } from "react-router-dom";
 function NewsCarousel() {
+  const totalSlides = 9;
+  const interval = 4500;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+    }, interval);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [totalSlides, interval]);
   return (
     <Carousel
-      showArrows={true} // Show navigation arrows
-      showStatus={false} // Hide status indicator
-      showThumbs={false} // Hide thumbnail images
-      infiniteLoop={true} // Enable infinite loop
-      centerMode={true} // Center the current slide
-      centerSlidePercentage={100} // Show one items at a time
+      showArrows={true}
+      showStatus={false}
+      showThumbs={false}
+      infiniteLoop={true}
+      centerMode={true}
+      centerSlidePercentage={100}
       emulateTouch={false}
       showIndicators={true}
+      selectedItem={currentIndex}
+      onChange={(index) => setCurrentIndex(index)}
     >
       <div className="main-carouselimage">
         <a>
@@ -26,11 +42,13 @@ function NewsCarousel() {
           />
         </a>
         <div>
-          <h3 style={{ color: "white" }}>MEIN, MEHMOOD</h3>
-          <p style={{ color: "darkgray" }}>Hindi Drama U/A 7+</p>
-          <Button variant="primary" className="watchbutton">
-            WATCH
-          </Button>
+          <h3 style={{ color: "white" }}>CNN News</h3>
+          <p style={{ color: "darkgray" }}>Hindi News U/A 7+</p>
+          <Link to="/carouseldata">
+            <Button variant="primary" className="watchbutton">
+              WATCH
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="main-carouselimage">
@@ -38,13 +56,13 @@ function NewsCarousel() {
           <img className="" src={ImagesUrl.newsheader_2} alt="headerimage" />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>
-            Sautrashtra vs Rest of India,Day 3
-          </h3>
-          <p style={{ color: "white" }}></p>
-          <Button variant="primary" className="watchbutton">
-            WATCH
-          </Button>
+          <h3 style={{ color: "white", fontSize: 35 }}>Today's Spots News</h3>
+          <p style={{ color: "white" }}>Hindi News U/A 7+</p>
+          <Link to="/carouseldata">
+            <Button variant="primary" className="watchbutton">
+              WATCH
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="main-carouselimage">
@@ -52,11 +70,13 @@ function NewsCarousel() {
           <img className="" src={ImagesUrl.newsheader_3} alt="headerimage" />
         </a>
         <div>
-          <h3 style={{ color: "white" }}>Rat In The Kitchen</h3>
-          <p style={{ color: "white" }}>Hindi Thriller U/A 13+</p>
-          <Button variant="primary" className="watchbutton">
-            WATCH
-          </Button>
+          <h3 style={{ color: "white" }}>Sikkim News</h3>
+          <p style={{ color: "white" }}>Hindi News U/A 13+</p>
+          <Link to="/carouseldata">
+            <Button variant="primary" className="watchbutton">
+              WATCH
+            </Button>
+          </Link>
         </div>
       </div>
       <div className="main-carouselimage">
@@ -64,11 +84,13 @@ function NewsCarousel() {
           <img className="" src={ImagesUrl.newsheader_4} alt="headerimage" />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>FC Goa 1-0 Punjab FC</h3>
-          <p style={{ color: "white" }}></p>
-          <Button variant="primary" className="watchbutton">
-            WATCH
-          </Button>
+          <h3 style={{ color: "white", fontSize: 35 }}>CNBC Awaaz</h3>
+          <p style={{ color: "white" }}>Hindi News U/A 7+</p>
+          <Link to="/carouseldata">
+            <Button variant="primary" className="watchbutton">
+              WATCH
+            </Button>
+          </Link>
         </div>
       </div>
     </Carousel>

@@ -4,18 +4,34 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "../../styles/Carousel.css";
 import { ImagesUrl } from "../../Data/ImagesUrl";
-
+import { Link } from "react-router-dom";
 function TvShowsCarousel() {
+  const totalSlides = 9;
+  const interval = 3000;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+    }, interval);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [totalSlides, interval]);
   return (
     <Carousel
-      showArrows={true} // Show navigation arrows
-      showStatus={false} // Hide status indicator
-      showThumbs={false} // Hide thumbnail images
-      infiniteLoop={true} // Enable infinite loop
-      centerMode={true} // Center the current slide
-      centerSlidePercentage={100} // Show one items at a time
+      showArrows={true}
+      showStatus={false}
+      showThumbs={false}
+      infiniteLoop={true}
+      centerMode={true}
+      centerSlidePercentage={100}
       emulateTouch={false}
       showIndicators={true}
+      selectedItem={currentIndex}
+      onChange={(index) => setCurrentIndex(index)}
     >
       <div className="main-carouselimage">
         <a>
@@ -26,12 +42,14 @@ function TvShowsCarousel() {
           />
         </a>
         <div>
-          <h3 style={{ color: "white" }}>MEIN, MEHMOOD</h3>
+          <h3 style={{ color: "white" }}>KAALKOOT</h3>
           <p style={{ color: "darkgray" }}>Hindi Drama U/A 7+</p>
           <p style={{ color: "white" }}>
-            <Button variant="primary" className="watchbutton">
-              WATCH
-            </Button>
+            <Link to="/carouseldata">
+              <Button variant="primary" className="watchbutton">
+                WATCH
+              </Button>
+            </Link>
           </p>
         </div>
       </div>
@@ -40,14 +58,14 @@ function TvShowsCarousel() {
           <img className="" src={ImagesUrl.tvShowsheader_2} alt="headerimage" />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>
-            Sautrashtra vs Rest of India,Day 3
-          </h3>
-          <p style={{ color: "white" }}></p>
+          <h3 style={{ color: "white", fontSize: 35 }}>GAME OF THRONES</h3>
+          <p style={{ color: "white" }}>English Drama U/A 18+</p>
           <p style={{ color: "white" }}>
-            <Button variant="primary" className="watchbutton">
-              WATCH
-            </Button>
+            <Link to="/carouseldata">
+              <Button variant="primary" className="watchbutton">
+                WATCH
+              </Button>
+            </Link>
           </p>
         </div>
       </div>
@@ -56,12 +74,14 @@ function TvShowsCarousel() {
           <img className="" src={ImagesUrl.tvShowsheader_3} alt="headerimage" />
         </a>
         <div>
-          <h3 style={{ color: "white" }}>Rat In The Kitchen</h3>
-          <p style={{ color: "white" }}>Hindi Thriller U/A 13+</p>
+          <h3 style={{ color: "white" }}>BIG BOSS</h3>
+          <p style={{ color: "white" }}>Hindi Drama U/A 13+</p>
           <p style={{ color: "white" }}>
-            <Button variant="primary" className="watchbutton">
-              WATCH
-            </Button>
+            <Link to="/carouseldata">
+              <Button variant="primary" className="watchbutton">
+                WATCH
+              </Button>
+            </Link>
           </p>
         </div>
       </div>
@@ -70,12 +90,14 @@ function TvShowsCarousel() {
           <img className="" src={ImagesUrl.tvShowsheader_4} alt="headerimage" />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>FC Goa 1-0 Punjab FC</h3>
+          <h3 style={{ color: "white", fontSize: 35 }}>SUCCESION</h3>
           <p style={{ color: "white" }}></p>
           <p style={{ color: "white" }}>
-            <Button variant="primary" className="watchbutton">
-              WATCH
-            </Button>
+            <Link to="/carouseldata">
+              <Button variant="primary" className="watchbutton">
+                WATCH
+              </Button>
+            </Link>
           </p>
         </div>
       </div>
