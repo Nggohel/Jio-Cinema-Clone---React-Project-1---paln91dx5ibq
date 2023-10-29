@@ -38,6 +38,8 @@ function EditProfile() {
       GetData.data.name = getUpdatedData.data.user.name;
       localStorage.setItem("user-info", JSON.stringify(GetData));
       navigate("/foryou");
+      document.body.style.overflowY = "scroll";
+      document.body.style.overflowX = "hidden";
     } else {
       alert(getUpdatedData.message);
     }

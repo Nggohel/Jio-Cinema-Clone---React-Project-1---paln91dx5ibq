@@ -24,7 +24,8 @@ function Login() {
       setEmail("");
       setPassword("");
       navigate("/foryou");
-      document.body.style.overflow = "scroll";
+      document.body.style.overflowY = "scroll";
+      document.body.style.overflowX = "hidden";
     } else {
       alert(getLoginData.message);
     }

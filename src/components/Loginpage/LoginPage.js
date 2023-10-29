@@ -23,7 +23,8 @@ function LoginPage() {
     localStorage.removeItem("user-info");
     navigate("/foryou");
     setIsCardMoved(!isCardMoved);
-    document.body.style.overflow = "scroll";
+    document.body.style.overflowY = "scroll";
+    document.body.style.overflowX = "hidden";
   };
 
   const navigate = useNavigate();
