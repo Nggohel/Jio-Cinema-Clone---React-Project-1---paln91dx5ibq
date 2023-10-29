@@ -1,37 +1,30 @@
 import React, { useState, useEffect } from "react";
-import AllPotraitData from "../../AllPotraitData/AllPotraitData";
+import AllData from "../../AllDetailsPage/AllData";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { fetchApiData } from "../../../Api/Api";
+import { ApiUrl } from "../../../Data/ApiUrl";
 function Searchpage() {
   const [data, setData] = useState([]);
   const { query } = useParams();
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const url = `${process.env.REACT_APP_GET_DATA_URL}?search={"keywords":"${query}"}`;
-        const getData = await fetch(url, {
-          method: "GET",
-          headers: {
-            projectID: "paln91dx5ibq",
-          },
-        });
-        const json = await getData.json();
-        console.log(json.data);
-        setData(json.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+    (async () => {
+      const getData = await fetchApiData(
+        `${ApiUrl["ListShows"]}?search={"keywords":"${query}"}`
+      );
+      if (getData.status == "success") {
+        setData(getData.data);
+      } else {
+        alert(getData.message);
       }
-    }
-    if (query.trim() !== "") {
-      fetchData();
-    }
+    })();
   }, [query]);
-  console.log(data);
+
   return (
     <>
       {query.trim() === "" ? (
-        <AllPotraitData />
+        <AllData />
       ) : (
         <div className="allportrait-card">
           {data.length > 0 ? (

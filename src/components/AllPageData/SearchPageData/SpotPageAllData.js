@@ -18,7 +18,7 @@ function SpotPageAllData() {
     >
       <div className="main-spotpagealldata">
         <a>
-          <img className="" src="images/header-2.avif" alt="headerimage" />
+          <img loading="lazy" src="images/header-2.avif" alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white", fontSize: 35 }}>
@@ -29,7 +29,7 @@ function SpotPageAllData() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src="images/header-4.avif" alt="headerimage" />
+          <img loading="lazy" src="images/header-4.avif" alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white", fontSize: 35 }}>FC Goa 1-0 Punjab FC</h3>
@@ -38,7 +38,7 @@ function SpotPageAllData() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src="images/header-9.avif" alt="headerimage" />
+          <img loading="lazy" src="images/header-9.avif" alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white", fontSize: 35 }}>Top Goals ft.Boumous</h3>
@@ -47,7 +47,7 @@ function SpotPageAllData() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src="images/header-2.avif" alt="headerimage" />
+          <img loading="lazy" src="images/header-2.avif" alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white", fontSize: 35 }}>
@@ -58,7 +58,7 @@ function SpotPageAllData() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src="images/header-4.avif" alt="headerimage" />
+          <img loading="lazy" src="images/header-4.avif" alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white", fontSize: 35 }}>FC Goa 1-0 Punjab FC</h3>

@@ -36,6 +36,7 @@ function TvShowsCarousel() {
       <div className="main-carouselimage">
         <a>
           <img
+            loading="lazy"
             className="main-img"
             src={ImagesUrl.tvShowsheader_1}
             alt="headerimage"
@@ -55,10 +56,15 @@ function TvShowsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src={ImagesUrl.tvShowsheader_2} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.tvShowsheader_2}
+            alt="headerimage"
+          />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>GAME OF THRONES</h3>
+          <h3 style={{ color: "white" }}>GAME OF THRONES</h3>
           <p style={{ color: "white" }}>English Drama U/A 18+</p>
           <p style={{ color: "white" }}>
             <Link to="/carouseldata">
@@ -71,7 +77,12 @@ function TvShowsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src={ImagesUrl.tvShowsheader_3} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.tvShowsheader_3}
+            alt="headerimage"
+          />
         </a>
         <div>
           <h3 style={{ color: "white" }}>BIG BOSS</h3>
@@ -87,10 +98,15 @@ function TvShowsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src={ImagesUrl.tvShowsheader_4} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.tvShowsheader_4}
+            alt="headerimage"
+          />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>SUCCESION</h3>
+          <h3 style={{ color: "white" }}>SUCCESION</h3>
           <p style={{ color: "white" }}></p>
           <p style={{ color: "white" }}>
             <Link to="/carouseldata">

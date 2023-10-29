@@ -49,22 +49,22 @@ function JiocinemaFooter() {
             <h4>Connect With Us</h4>
             <button className="footer-connect-button">
               <a href="https://www.facebook.com">
-                <img src={LogoUrl.facebookLogo} />
+                <img loading="lazy" src={LogoUrl.facebookLogo} />
               </a>
             </button>
             <button className="footer-connect-button">
               <a href="https://www.twitter.com">
-                <img src={LogoUrl.twitterLogo} />
+                <img loading="lazy" src={LogoUrl.twitterLogo} />
               </a>
             </button>
             <button className="footer-connect-button">
               <a href="https://www.instagram.com">
-                <img src={LogoUrl.instagramLogo} />
+                <img loading="lazy" src={LogoUrl.instagramLogo} />
               </a>
             </button>
             <button className="footer-connect-button">
               <a href="https://www.youtube.com">
-                <img src={LogoUrl.youtubeLogo} />
+                <img loading="lazy" src={LogoUrl.youtubeLogo} />
               </a>
             </button>
           </div>
@@ -74,6 +74,7 @@ function JiocinemaFooter() {
               <button className="footer-button-playstore">
                 <a href="https://play.google.com/">
                   <img
+                    loading="lazy"
                     src={LogoUrl.googleplayLogo}
                     style={{ height: "100%", width: "100%" }}
                   />
@@ -82,6 +83,7 @@ function JiocinemaFooter() {
               <button className="footer-button-appstore">
                 <a href="https://www.apple.com">
                   <img
+                    loading="lazy"
                     src={LogoUrl.applestoreLogo}
                     style={{ height: "100%", width: "100%" }}
                   />
@@ -94,7 +96,11 @@ function JiocinemaFooter() {
       <div className="lower-footer">
         <p>Copyright © 2023 Viacom18 Media PVT LTD.All rights reserved.</p>
         <a href="https://www.jio.com">
-          <img src={LogoUrl.jioCinemaLogo} className="lower-footer-img" />
+          <img
+            loading="lazy"
+            src={LogoUrl.jioCinemaLogo}
+            className="lower-footer-img"
+          />
         </a>
       </div>
     </>

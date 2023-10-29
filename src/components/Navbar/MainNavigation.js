@@ -34,7 +34,7 @@ function MainNavigation() {
           <Route path="/tvshow" element={<TvshowPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/search/:query" element={<Searchpage />} />
-          <Route path="/search" element={<AllPotraitData />} />
+          <Route path="/search" element={<AllData />} />
           <Route path="/mobilesearch" element={<MobileSearchPage />} />
           <Route path="/mobilesearch/:query" element={<Searchpage />} />
           <Route

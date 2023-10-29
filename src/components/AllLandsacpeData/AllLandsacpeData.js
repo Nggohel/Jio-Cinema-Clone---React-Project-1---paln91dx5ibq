@@ -48,6 +48,7 @@ function AllLandscapeData() {
         <Link to="/back">
           <button className="alllandscape-button">
             <img
+              loading="lazy"
               className="alllandscape-icon"
               src={LogoUrl.leftSideArrowLogo}
             />
@@ -62,6 +63,7 @@ function AllLandscapeData() {
             <div className="alllandscape-data" key={index}>
               <Link to={`/details/${item._id}`}>
                 <img
+                  loading="lazy"
                   className="alllandscape-img"
                   src={item.thumbnail}
                   alt={`Image ${index}`}

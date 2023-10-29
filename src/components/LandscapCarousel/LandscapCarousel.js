@@ -41,7 +41,11 @@ function LandscapCarousel({ category, title }) {
         <Link to="/Moredatalandscape">
           <button className="landscape-icon-button">
             view All
-            <img className="landscape-icon" src={LogoUrl.rightSideLogo} />
+            <img
+              loading="lazy"
+              className="landscape-icon"
+              src={LogoUrl.rightSideLogo}
+            />
           </button>
         </Link>
       </div>
@@ -61,6 +65,7 @@ function LandscapCarousel({ category, title }) {
             <Link to={`/details/${item._id}`}>
               <div className="landscape-img" key={index}>
                 <img
+                  loading="lazy"
                   src={item.thumbnail}
                   alt={`Image ${index}`}
                   style={{ width: "100%", height: "100%" }}

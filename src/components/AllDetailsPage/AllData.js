@@ -33,6 +33,7 @@ function AllData() {
             <div className="allportrait-data" key={index}>
               <Link to={`/details/${item._id}`}>
                 <img
+                  loading="lazy"
                   className="allportrait-img"
                   src={item.thumbnail}
                   alt={`Image ${index}`}

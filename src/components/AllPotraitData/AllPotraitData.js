@@ -12,6 +12,7 @@ function AllPotraitData() {
   const { itemtitle } = useParams();
 
   useEffect(() => {
+    // iife function
     (async () => {
       const getData = await fetchApiData(
         `${ApiUrl["ListShows"]}?filter={"type": "${itemcategery}"}&page=${page}&limit=20`
@@ -50,7 +51,11 @@ function AllPotraitData() {
       <div className="allportrait-title">
         <Link to="/backtohome">
           <button className="allportrait-button">
-            <img className="allportrait-icon" src={LogoUrl.leftSideArrowLogo} />
+            <img
+              loading="lazy"
+              className="allportrait-icon"
+              src={LogoUrl.leftSideArrowLogo}
+            />
           </button>
         </Link>
         <h4 className="allportrait-name">All {itemtitle}.... </h4>
@@ -62,6 +67,7 @@ function AllPotraitData() {
             <div className="allportrait-data" key={index}>
               <Link to={`/details/${item._id}`}>
                 <img
+                  loading="lazy"
                   className="allportrait-img"
                   src={item.thumbnail}
                   alt={`Image ${index}`}

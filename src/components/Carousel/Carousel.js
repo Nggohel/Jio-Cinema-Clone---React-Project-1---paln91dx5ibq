@@ -38,6 +38,7 @@ function CarouselCard() {
         <div className="main-carouselimage">
           <a>
             <img
+              loading="lazy"
               className="main-img"
               src={ImagesUrl.header_1}
               alt="headerimage"
@@ -55,11 +56,14 @@ function CarouselCard() {
         </div>
         <div className="main-carouselimage">
           <a></a>
-          <img className="" src={ImagesUrl.header_2} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.header_2}
+            alt="headerimage"
+          />
           <div>
-            <h3 style={{ color: "white", fontSize: 35 }}>
-              Sautrashtra vs RestofIndia
-            </h3>
+            <h3 style={{ color: "white" }}>Sautrashtra vs RestofIndia</h3>
             <p style={{ color: "white" }}></p>
             <Link to="/carouseldata">
               <Button variant="primary" className="watchbutton">
@@ -70,7 +74,12 @@ function CarouselCard() {
         </div>
         <div className="main-carouselimage">
           <a>
-            <img className="" src={ImagesUrl.header_3} alt="headerimage" />
+            <img
+              loading="lazy"
+              className=""
+              src={ImagesUrl.header_3}
+              alt="headerimage"
+            />
           </a>
           <div>
             <h3 style={{ color: "white" }}>Rat In The Kitchen</h3>
@@ -84,12 +93,15 @@ function CarouselCard() {
         </div>
         <div className="main-carouselimage">
           <a>
-            <img className="" src={ImagesUrl.header_4} alt="headerimage" />
+            <img
+              loading="lazy"
+              className=""
+              src={ImagesUrl.header_4}
+              alt="headerimage"
+            />
           </a>
           <div>
-            <h3 style={{ color: "white", fontSize: 35 }}>
-              FC Goa 1-0 Punjab FC
-            </h3>
+            <h3 style={{ color: "white" }}>FC Goa 1-0 Punjab FC</h3>
             <p style={{ color: "white" }}></p>
             <Link to="/carouseldata">
               <Button variant="primary" className="watchbutton">
@@ -100,7 +112,12 @@ function CarouselCard() {
         </div>
         <div className="main-carouselimage">
           <a>
-            <img className="" src={ImagesUrl.header_5} alt="headerimage" />
+            <img
+              loading="lazy"
+              className=""
+              src={ImagesUrl.header_5}
+              alt="headerimage"
+            />
           </a>
           <div>
             <h3 style={{ color: "white" }}>Shark tank</h3>
@@ -114,10 +131,15 @@ function CarouselCard() {
         </div>
         <div className="main-carouselimage">
           <a>
-            <img className="" src={ImagesUrl.header_6} alt="headerimage" />
+            <img
+              loading="lazy"
+              className=""
+              src={ImagesUrl.header_6}
+              alt="headerimage"
+            />
           </a>
           <div>
-            <h3 style={{ color: "white", fontSize: 35 }}>Peacock Hub</h3>
+            <h3 style={{ color: "white" }}>Peacock Hub</h3>
             <p style={{ color: "white" }}></p>
             <Link to="/carouseldata">
               <Button variant="primary" className="watchbutton">
@@ -128,7 +150,12 @@ function CarouselCard() {
         </div>
         <div className="main-carouselimage">
           <a>
-            <img className="" src={ImagesUrl.header_7} alt="headerimage" />
+            <img
+              loading="lazy"
+              className=""
+              src={ImagesUrl.header_7}
+              alt="headerimage"
+            />
           </a>
           <div>
             <h3 style={{ color: "white" }}>Aakashvani-Oct 3</h3>
@@ -142,7 +169,12 @@ function CarouselCard() {
         </div>
         <div className="main-carouselimage">
           <a>
-            <img className="" src={ImagesUrl.header_8} alt="headerimage" />
+            <img
+              loading="lazy"
+              className=""
+              src={ImagesUrl.header_8}
+              alt="headerimage"
+            />
           </a>
           <div>
             <h3 style={{ color: "white" }}>Udaariyaan</h3>
@@ -156,12 +188,15 @@ function CarouselCard() {
         </div>
         <div className="main-carouselimage">
           <a>
-            <img className="" src={ImagesUrl.header_9} alt="headerimage" />
+            <img
+              loading="lazy"
+              className=""
+              src={ImagesUrl.header_9}
+              alt="headerimage"
+            />
           </a>
           <div>
-            <h3 style={{ color: "white", fontSize: 35 }}>
-              Top Goals ft.Boumous
-            </h3>
+            <h3 style={{ color: "white" }}>Top Goals ft.Boumous</h3>
             <p style={{ color: "white" }}></p>
             <Link to="/carouseldata">
               <Button variant="primary" className="watchbutton">

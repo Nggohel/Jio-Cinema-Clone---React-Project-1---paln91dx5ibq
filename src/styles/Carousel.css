@@ -49,6 +49,7 @@
   padding: 4px;
 }
 h3 {
+  font-size: 35px;
   color: white;
   font-weight: 800;
   text-align: start;
@@ -88,7 +89,7 @@ p {
     width: 500px;
     border: 1px solid black;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     position: relative;
   }
   .main-carouselimage > div {
@@ -100,8 +101,9 @@ p {
     z-index: 1;
   }
   .carousel .main-carouselimage img {
-    object-fit: cover;
-    width: 412px;
+    object-fit: fill;
+    width: 25rem;
+    height: 18rem;
   }
 
   h3 {
@@ -119,6 +121,7 @@ p {
     border-radius: 5px;
     padding: 8px 30px;
     font-size: 11px;
+    margin-left: -3.5rem;
   }
   .watchbutton:hover {
     background-color: rgba(217, 0, 141, 0.704);

@@ -36,6 +36,7 @@ function NewsCarousel() {
       <div className="main-carouselimage">
         <a>
           <img
+            loading="lazy"
             className="main-img"
             src={ImagesUrl.newsheader_1}
             alt="headerimage"
@@ -53,10 +54,15 @@ function NewsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src={ImagesUrl.newsheader_2} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.newsheader_2}
+            alt="headerimage"
+          />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>Today's Spots News</h3>
+          <h3 style={{ color: "white" }}>Today's Spots News</h3>
           <p style={{ color: "white" }}>Hindi News U/A 7+</p>
           <Link to="/carouseldata">
             <Button variant="primary" className="watchbutton">
@@ -67,7 +73,12 @@ function NewsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src={ImagesUrl.newsheader_3} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.newsheader_3}
+            alt="headerimage"
+          />
         </a>
         <div>
           <h3 style={{ color: "white" }}>Sikkim News</h3>
@@ -81,10 +92,15 @@ function NewsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src={ImagesUrl.newsheader_4} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.newsheader_4}
+            alt="headerimage"
+          />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>CNBC Awaaz</h3>
+          <h3 style={{ color: "white" }}>CNBC Awaaz</h3>
           <p style={{ color: "white" }}>Hindi News U/A 7+</p>
           <Link to="/carouseldata">
             <Button variant="primary" className="watchbutton">

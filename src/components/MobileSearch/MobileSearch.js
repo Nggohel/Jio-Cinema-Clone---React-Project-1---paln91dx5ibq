@@ -5,11 +5,17 @@ import Col from "react-bootstrap/Col";
 import { Row } from "react-bootstrap";
 import "../../styles/MobileSearch.css";
 import PotraitCarousel from "../PotraitCarousel/PotraitCarousel";
+import AllData from "../AllDetailsPage/AllData";
 
 function MobileSearchPage() {
   const [searchValue, setSearchValue] = useState("");
 
   const navigate = useNavigate();
+
+  // const arr = [
+  //   { category: "movie", title: "Movie" },
+  //   { category: "movie", title: "Movie" },
+  // ];
 
   const handleSearchChange = (e) => {
     setSearchValue(e.target.value);
@@ -33,7 +39,10 @@ function MobileSearchPage() {
           />
         </Col>
       </Row>
-      <PotraitCarousel category={category} title={title} />
+      {/* {arr.map((item, index) => {
+        <PotraitCarousel category={item.category} title={item.title} />;
+      })} */}
+      <AllData />
     </>
   );
 }

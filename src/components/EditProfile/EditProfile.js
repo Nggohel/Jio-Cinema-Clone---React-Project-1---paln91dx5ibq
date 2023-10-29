@@ -56,6 +56,7 @@ function EditProfile() {
           <Link to="/back">
             <button className="editprofile-button">
               <img
+                loading="lazy"
                 src={LogoUrl.backarrowLogo}
                 className="editprofile-button-image"
               />
@@ -66,6 +67,7 @@ function EditProfile() {
         <div className="editprofile-form">
           <div className="edit-image">
             <img
+              loading="lazy"
               src={LogoUrl.avtarLogo}
               width="65"
               height="65"

@@ -36,6 +36,7 @@ function MovieCarousel() {
       <div className="main-carouselimage">
         <a>
           <img
+            loading="lazy"
             className="main-img"
             src={ImagesUrl.movieheader_1}
             alt="headerimage"
@@ -53,10 +54,15 @@ function MovieCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src={ImagesUrl.movieheader_2} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.movieheader_2}
+            alt="headerimage"
+          />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>FAST X</h3>
+          <h3 style={{ color: "white" }}>FAST X</h3>
           <p style={{ color: "white" }}>English Movie U/A 7+</p>
           <Link to="/carouseldata">
             <Button variant="primary" className="watchbutton">
@@ -67,7 +73,12 @@ function MovieCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src={ImagesUrl.movieheader_3} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.movieheader_3}
+            alt="headerimage"
+          />
         </a>
         <div>
           <h3 style={{ color: "white" }}>BHEDIYA</h3>
@@ -81,10 +92,15 @@ function MovieCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img className="" src={ImagesUrl.movieheader_4} alt="headerimage" />
+          <img
+            loading="lazy"
+            className=""
+            src={ImagesUrl.movieheader_4}
+            alt="headerimage"
+          />
         </a>
         <div>
-          <h3 style={{ color: "white", fontSize: 35 }}>The NUN</h3>
+          <h3 style={{ color: "white" }}>The NUN</h3>
           <p style={{ color: "white" }}>English Horror Movie U/A 7+</p>
           <Link to="/carouseldata">
             <Button variant="primary" className="watchbutton">
