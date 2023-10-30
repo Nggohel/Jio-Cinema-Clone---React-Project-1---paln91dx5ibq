@@ -30,6 +30,7 @@ function NewsCarousel() {
       centerSlidePercentage={100}
       emulateTouch={false}
       showIndicators={true}
+      useKeyboardArrows={true}
       selectedItem={currentIndex}
       onChange={(index) => setCurrentIndex(index)}
     >

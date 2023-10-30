@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../../styles/Login.css";
 import { postApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
@@ -13,6 +15,10 @@ function Login() {
 
   const navigate = useNavigate();
 
+  const notify = () => {
+    toast.success("You are Logging in Successfully");
+  };
+
   const JiocinemaLogin = async () => {
     let item = { email: email, password: password, appType: "ott" };
 
@@ -20,7 +26,8 @@ function Login() {
 
     if (getLoginData.status === "success") {
       localStorage.setItem("user-info", JSON.stringify(getLoginData));
-      alert("You are Logging in Successfully");
+      // alert("You are Logging in Successfully");
+      notify();
       setEmail("");
       setPassword("");
       navigate("/foryou");
@@ -74,6 +81,18 @@ function Login() {
           </p>
         </p>
       </div>
+      <ToastContainer
+      // position="top-right"
+      // autoClose={10000}
+      // hideProgressBar={false}
+      // newestOnTop={false}
+      // closeOnClick
+      // rtl={false}
+      // pauseOnFocusLoss
+      // draggable
+      // pauseOnHover
+      // theme="dark"
+      />
     </>,
     document.getElementById("login-page")
   );

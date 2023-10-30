@@ -32,6 +32,7 @@ function SubscribeCarousel() {
       emulateTouch={false}
       showIndicators={true}
       selectedItem={currentIndex}
+      useKeyboardArrows={true}
       onChange={(index) => setCurrentIndex(index)}
     >
       <div className="main-carouselimage">

@@ -21,7 +21,7 @@ function LoginPage({ setExpand, expand }) {
   };
 
   const userInfo = JSON.parse(localStorage.getItem("user-info"));
-  console.log(userInfo);
+
   const username =
     userInfo && userInfo.data.name ? userInfo.data.name : "Guest";
   const email = userInfo && userInfo.data.email ? userInfo.data.email : "";
