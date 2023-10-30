@@ -6,11 +6,18 @@ import "../../styles/LoginPage.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { LogoUrl } from "../../Data/LogoUrl";
-function LoginPage() {
+
+function LoginPage({ setExpand, expand }) {
   const [isCardMoved, setIsCardMoved] = useState(false);
 
-  const handleLoginClick = () => {
+  const handleClick = () => {
+    setExpand(!expand);
     setIsCardMoved(!isCardMoved);
+  };
+
+  const handleWorkingPage = () => {
+    handleClick();
+    alert("Currently on Working This Phase");
   };
 
   const userInfo = JSON.parse(localStorage.getItem("user-info"));
@@ -20,6 +27,7 @@ function LoginPage() {
   const email = userInfo && userInfo.data.email ? userInfo.data.email : "";
 
   const handleLogout = () => {
+    setExpand(!expand);
     localStorage.removeItem("user-info");
     navigate("/foryou");
     setIsCardMoved(!isCardMoved);
@@ -51,7 +59,7 @@ function LoginPage() {
                     <Button
                       variant="primary"
                       className="button"
-                      onClick={handleLoginClick}
+                      onClick={handleClick}
                     >
                       Login
                     </Button>
@@ -60,7 +68,7 @@ function LoginPage() {
                     <Button
                       variant="primary"
                       className="button"
-                      onClick={handleLoginClick}
+                      onClick={handleClick}
                     >
                       SingUp
                     </Button>
@@ -87,16 +95,16 @@ function LoginPage() {
           <>
             <div className="editprofile">
               <Link to="/editprofile">
-                <h6 onClick={handleLoginClick}>Edit Profile</h6>
+                <h6 onClick={handleClick}>Edit Profile</h6>
               </Link>
             </div>
             <Link to="/subscribe">
-              <h6>Subcribe Now!</h6>
+              <h6 onClick={handleClick}>Subcribe Now!</h6>
             </Link>
             <Link to="/watchlist">
-              <h6 onClick={handleLoginClick}>My WatchList!</h6>
+              <h6 onClick={handleClick}>My WatchList!</h6>
             </Link>
-            <h6>Setting</h6>
+            <h6 onClick={handleWorkingPage}>Setting</h6>
           </>
         ) : (
           <>
@@ -105,7 +113,7 @@ function LoginPage() {
           </>
         )}
         <hr class="solid"></hr>
-        <h6>Help & Legal</h6>
+        <h6 onClick={handleWorkingPage}>Help & Legal</h6>
         {userInfo ? (
           <>
             <h6 className="" onClick={handleLogout}>

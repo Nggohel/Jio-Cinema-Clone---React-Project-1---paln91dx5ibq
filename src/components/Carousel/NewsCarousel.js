@@ -36,7 +36,6 @@ function NewsCarousel() {
       <div className="main-carouselimage">
         <a>
           <img
-            loading="lazy"
             className="main-img"
             src={ImagesUrl.newsheader_1}
             alt="headerimage"
@@ -54,12 +53,7 @@ function NewsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.newsheader_2}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.newsheader_2} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>Today's Spots News</h3>
@@ -73,12 +67,7 @@ function NewsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.newsheader_3}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.newsheader_3} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>Sikkim News</h3>
@@ -92,12 +81,7 @@ function NewsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.newsheader_4}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.newsheader_4} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>CNBC Awaaz</h3>

@@ -11,12 +11,9 @@ function GetVideos() {
 
   const id = decodedUrl.split("/").pop().split(".")[0];
 
-  console.log(id);
-
   const addToWatchlist = async () => {
     const GetData = JSON.parse(localStorage.getItem("user-info"));
     let item = { showId: id };
-
     const getUpdatedData = await patchApiData(
       `${ApiUrl["Watchlist"]}`,
       item,

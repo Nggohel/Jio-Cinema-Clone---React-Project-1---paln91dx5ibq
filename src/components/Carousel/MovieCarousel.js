@@ -36,7 +36,6 @@ function MovieCarousel() {
       <div className="main-carouselimage">
         <a>
           <img
-            loading="lazy"
             className="main-img"
             src={ImagesUrl.movieheader_1}
             alt="headerimage"
@@ -54,12 +53,7 @@ function MovieCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.movieheader_2}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.movieheader_2} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>FAST X</h3>
@@ -73,12 +67,7 @@ function MovieCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.movieheader_3}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.movieheader_3} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>BHEDIYA</h3>
@@ -92,12 +81,7 @@ function MovieCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.movieheader_4}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.movieheader_4} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>The NUN</h3>

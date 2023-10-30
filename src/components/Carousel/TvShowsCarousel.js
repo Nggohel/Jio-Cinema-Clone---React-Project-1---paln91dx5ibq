@@ -36,7 +36,6 @@ function TvShowsCarousel() {
       <div className="main-carouselimage">
         <a>
           <img
-            loading="lazy"
             className="main-img"
             src={ImagesUrl.tvShowsheader_1}
             alt="headerimage"
@@ -56,12 +55,7 @@ function TvShowsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.tvShowsheader_2}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.tvShowsheader_2} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>GAME OF THRONES</h3>
@@ -77,12 +71,7 @@ function TvShowsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.tvShowsheader_3}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.tvShowsheader_3} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>BIG BOSS</h3>
@@ -98,12 +87,7 @@ function TvShowsCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.tvShowsheader_4}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.tvShowsheader_4} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>SUCCESION</h3>

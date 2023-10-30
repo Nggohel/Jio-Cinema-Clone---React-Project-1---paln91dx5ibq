@@ -37,7 +37,6 @@ function SubscribeCarousel() {
       <div className="main-carouselimage">
         <a>
           <img
-            loading="lazy"
             className="main-img"
             src={ImagesUrl.spotheader_1}
             alt="headerimage"
@@ -55,12 +54,7 @@ function SubscribeCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.spotheader_2}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.spotheader_2} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>Best Of IndianFootBall</h3>
@@ -74,12 +68,7 @@ function SubscribeCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.spotheader_3}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.spotheader_3} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>SMAT MATTERS</h3>
@@ -93,12 +82,7 @@ function SubscribeCarousel() {
       </div>
       <div className="main-carouselimage">
         <a>
-          <img
-            loading="lazy"
-            className=""
-            src={ImagesUrl.spotheader_4}
-            alt="headerimage"
-          />
+          <img className="" src={ImagesUrl.spotheader_4} alt="headerimage" />
         </a>
         <div>
           <h3 style={{ color: "white" }}>Akashvani</h3>

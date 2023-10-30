@@ -23,7 +23,7 @@ function Details() {
   return (
     <>
       <div>
-        {data && data.thumbnail ? (
+        {data && data?.thumbnail ? (
           <>
             <div
               className="image-container"
