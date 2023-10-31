@@ -26,8 +26,8 @@ function Login() {
 
     if (getLoginData.status === "success") {
       localStorage.setItem("user-info", JSON.stringify(getLoginData));
-      // alert("You are Logging in Successfully");
-      notify();
+      alert("You are Logging in Successfully");
+      // notify();
       setEmail("");
       setPassword("");
       navigate("/foryou");
@@ -81,7 +81,7 @@ function Login() {
           </p>
         </p>
       </div>
-      <ToastContainer
+      {/* <ToastContainer
       // position="top-right"
       // autoClose={10000}
       // hideProgressBar={false}
@@ -92,7 +92,7 @@ function Login() {
       // draggable
       // pauseOnHover
       // theme="dark"
-      />
+      /> */}
     </>,
     document.getElementById("login-page")
   );
