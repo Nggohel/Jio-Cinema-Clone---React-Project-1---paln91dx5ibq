@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.min.css";
 import "../../styles/EditProfile.css";
 import { Link, useNavigate } from "react-router-dom";
 import { patchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
+import { notify } from "../../Assets/Toaster";
 
 function EditProfile() {
   const [name, setName] = useState("");
@@ -31,7 +35,7 @@ function EditProfile() {
       GetData
     );
     if (getUpdatedData.status == "success") {
-      alert("Your is Successfully updated!!!");
+      notify("Your newData is Successfully updated!!!", "success");
       setName("");
       setNumber("");
       setAddress("");
@@ -41,7 +45,7 @@ function EditProfile() {
       document.body.style.overflowY = "scroll";
       document.body.style.overflowX = "hidden";
     } else {
-      alert(getUpdatedData.message);
+      notify(getUpdatedData.message, "error");
     }
   };
 
@@ -117,6 +121,19 @@ function EditProfile() {
           Save
         </button>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        style={{ zIndex: 9999 }}
+      />
     </>,
     document.getElementById("editprofile")
   );

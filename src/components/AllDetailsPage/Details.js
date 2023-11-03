@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/Details.css";
 import { fetchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
@@ -8,6 +8,7 @@ import { ApiUrl } from "../../Data/ApiUrl";
 function Details() {
   const [data, setData] = useState([]);
   const { itemId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -19,6 +20,15 @@ function Details() {
       }
     })();
   }, [itemId]);
+
+  const CheckToken = () => {
+    const GetData = JSON.parse(localStorage.getItem("user-info"));
+    if (GetData == null) {
+      navigate("/login");
+    } else {
+      navigate(`/gettingvideo/${encodeURIComponent(data.video_url)}`);
+    }
+  };
 
   return (
     <>
@@ -33,11 +43,13 @@ function Details() {
             >
               <div className="deatils-card-position">
                 <div className="deatils-main">
-                  <Link
+                  {/* <Link
                     to={`/gettingvideo/${encodeURIComponent(data.video_url)}`}
-                  >
-                    <button className="details-button">Watch</button>
-                  </Link>
+                  > */}
+                  <button className="details-button" onClick={CheckToken}>
+                    Watch
+                  </button>
+                  {/* </Link> */}
                   <div className="details-data">
                     <h4>{data.title}</h4>
 

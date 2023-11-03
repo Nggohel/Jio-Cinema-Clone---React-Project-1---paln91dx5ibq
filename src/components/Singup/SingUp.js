@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.min.css";
 import "../../styles/SingUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { postApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
+import { notify } from "../../Assets/Toaster";
 
 function SingUp() {
   const [name, setName] = useState("");
@@ -26,13 +30,13 @@ function SingUp() {
     const getSingUPData = await postApiData(`${ApiUrl["Signup"]}`, item);
 
     if (getSingUPData.status == "success") {
-      alert("You SingUp in Successfully");
+      notify(" Welcome! You are SignUp in Successfully!", "success");
       setName("");
       setEmail("");
       setPassword("");
       navigate("/login");
     } else {
-      alert(getSingUPData.message);
+      notify(getSingUPData.message, "error");
     }
     localStorage.setItem("user-info", JSON.stringify(getSingUPData));
   };
@@ -91,6 +95,19 @@ function SingUp() {
           </p>
         </p>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        style={{ zIndex: 9999 }}
+      />
     </>,
     document.getElementById("sing-up")
   );

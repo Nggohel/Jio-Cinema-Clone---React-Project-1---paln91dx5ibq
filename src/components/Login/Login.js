@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.min.css";
 import "../../styles/Login.css";
 import { postApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
+import { notify } from "../../Assets/Toaster";
 
 function Login() {
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
-
-  const notify = () => {
-    toast.success("You are Logging in Successfully");
-  };
 
   const JiocinemaLogin = async () => {
     let item = { email: email, password: password, appType: "ott" };
@@ -25,16 +21,17 @@ function Login() {
     const getLoginData = await postApiData(`${ApiUrl["Login"]}`, item);
 
     if (getLoginData.status === "success") {
+      notify("You are Logging in Successfully!", "success");
       localStorage.setItem("user-info", JSON.stringify(getLoginData));
-      alert("You are Logging in Successfully");
-      // notify();
       setEmail("");
       setPassword("");
-      navigate("/foryou");
+      setTimeout(() => {
+        navigate("/foryou");
+      }, 1200);
       document.body.style.overflowY = "scroll";
       document.body.style.overflowX = "hidden";
     } else {
-      alert(getLoginData.message);
+      notify(getLoginData.message, "error");
     }
   };
 
@@ -81,18 +78,19 @@ function Login() {
           </p>
         </p>
       </div>
-      {/* <ToastContainer
-      // position="top-right"
-      // autoClose={10000}
-      // hideProgressBar={false}
-      // newestOnTop={false}
-      // closeOnClick
-      // rtl={false}
-      // pauseOnFocusLoss
-      // draggable
-      // pauseOnHover
-      // theme="dark"
-      /> */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        style={{ zIndex: 9999 }}
+      />
     </>,
     document.getElementById("login-page")
   );
