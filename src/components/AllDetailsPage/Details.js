@@ -4,9 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import "../../styles/Details.css";
 import { fetchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
+import Toaster from "../../Assets/Toaster";
 
 function Details() {
   const [data, setData] = useState([]);
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
   const { itemId } = useParams();
   const navigate = useNavigate();
 
@@ -16,7 +21,10 @@ function Details() {
       if (getData.status == "success") {
         setData(getData.data);
       } else {
-        alert(getData.message);
+        setToast({
+          status: "error",
+          message: getData.message,
+        });
       }
     })();
   }, [itemId]);
@@ -72,6 +80,11 @@ function Details() {
           <span>Thumbnail not available</span>
         )}
       </div>
+      {toast.status == "error" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>
   );
 }

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "react-toastify/dist/ReactToastify.min.css";
 import "../../styles/EditProfile.css";
 import { Link, useNavigate } from "react-router-dom";
 import { patchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
-import { notify } from "../../Assets/Toaster";
+import Toaster from "../../Assets/Toaster";
 
 function EditProfile() {
   const [name, setName] = useState("");
@@ -18,6 +15,11 @@ function EditProfile() {
   const [number, setNumber] = useState("");
 
   const [profileImageFile, setProfileImageFile] = useState(null);
+
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
 
   const navigate = useNavigate();
 
@@ -35,22 +37,34 @@ function EditProfile() {
       GetData
     );
     if (getUpdatedData.status == "success") {
-      notify("Your newData is Successfully updated!!!", "success");
+      setToast({
+        status: "success",
+        message: "Your newData is Updated!!!",
+      });
+
       setName("");
       setNumber("");
       setAddress("");
       GetData.data.name = getUpdatedData.data.user.name;
       localStorage.setItem("user-info", JSON.stringify(GetData));
-      navigate("/foryou");
+      setTimeout(() => {
+        navigate("/foryou");
+      }, 1200);
       document.body.style.overflowY = "scroll";
       document.body.style.overflowX = "hidden";
     } else {
-      notify(getUpdatedData.message, "error");
+      setToast({
+        status: "error",
+        message: getUpdatedData.message,
+      });
     }
   };
 
   async function handleProfileImageUpdate() {
-    alert("currently working on this part");
+    setToast({
+      status: "workingOn",
+      message: "currently working on this Phase !",
+    });
   }
 
   return ReactDOM.createPortal(
@@ -81,8 +95,8 @@ function EditProfile() {
             <br></br>
             <input
               type="file"
-              accept=".png, .jpg, .jpeg ,.webp"
-              onChange={(e) => setProfileImageFile(e.target.files[0])}
+              // accept=".png, .jpg, .jpeg ,.webp"
+              onClick={handleProfileImageUpdate}
             />
           </div>
           <p className="editprofile-number">
@@ -121,19 +135,13 @@ function EditProfile() {
           Save
         </button>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        style={{ zIndex: 9999 }}
-      />
+      {toast.status == "success" ||
+      toast.status == "error" ||
+      toast.status == "workingOn" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>,
     document.getElementById("editprofile")
   );

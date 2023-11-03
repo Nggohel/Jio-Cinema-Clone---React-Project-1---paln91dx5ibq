@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "react-toastify/dist/ReactToastify.min.css";
 import "../../styles/SingUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { postApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
-import { notify } from "../../Assets/Toaster";
+import Toaster from "../../Assets/Toaster";
 
 function SingUp() {
   const [name, setName] = useState("");
@@ -18,6 +15,11 @@ function SingUp() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
 
   const JiocinemaSingUP = async () => {
     let item = {
@@ -30,13 +32,22 @@ function SingUp() {
     const getSingUPData = await postApiData(`${ApiUrl["Signup"]}`, item);
 
     if (getSingUPData.status == "success") {
-      notify(" Welcome! You are SignUp in Successfully!", "success");
+      setToast({
+        status: "success",
+        message: "Welcome! You are SignUp in Successfully!",
+      });
+
       setName("");
       setEmail("");
       setPassword("");
-      navigate("/login");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1300);
     } else {
-      notify(getSingUPData.message, "error");
+      setToast({
+        status: "error",
+        message: getSingUPData.message,
+      });
     }
     localStorage.setItem("user-info", JSON.stringify(getSingUPData));
   };
@@ -95,19 +106,13 @@ function SingUp() {
           </p>
         </p>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        style={{ zIndex: 9999 }}
-      />
+      {toast.status == "success" ||
+      toast.status == "error" ||
+      toast.status == "workingOn" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>,
     document.getElementById("sing-up")
   );

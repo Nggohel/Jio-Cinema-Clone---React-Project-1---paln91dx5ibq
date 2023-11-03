@@ -1,6 +1,3 @@
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "react-toastify/dist/ReactToastify.min.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
@@ -9,10 +6,16 @@ import "../../styles/LoginPage.css";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { LogoUrl } from "../../Data/LogoUrl";
-import { notifyInfo } from "../../Assets/Toaster";
+import Toaster from "../../Assets/Toaster";
 
 function LoginPage({ setExpand, expand }) {
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
+
   const [isCardMoved, setIsCardMoved] = useState(false);
+
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -21,7 +24,10 @@ function LoginPage({ setExpand, expand }) {
   };
 
   const handleWorkingPage = () => {
-    notifyInfo();
+    setToast({
+      status: "workingOn",
+      message: "currently working on this Phase !",
+    });
     setTimeout(() => {
       handleClick();
     }, 1000);
@@ -140,20 +146,13 @@ function LoginPage({ setExpand, expand }) {
           </div>
         </div>
       </Card>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        style={{ zIndex: 9999 }}
-      />
-      ;
+      {toast.status == "success" ||
+      toast.status == "error" ||
+      toast.status == "workingOn" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>
   );
 }

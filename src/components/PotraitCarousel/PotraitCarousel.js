@@ -6,9 +6,14 @@ import "../../styles/PotraitCarousel.css";
 import { fetchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
+import Toaster from "../../Assets/Toaster";
 
 function PotraitCarousel({ category, title }) {
   const [data, setData] = useState([]);
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
 
   useEffect(() => {
     (async () => {
@@ -18,7 +23,10 @@ function PotraitCarousel({ category, title }) {
       if (getData.status == "success") {
         setData(getData.data);
       } else {
-        alert(getData.message);
+        setToast({
+          status: "error",
+          message: getData.message,
+        });
       }
     })();
   }, [category]);
@@ -63,6 +71,11 @@ function PotraitCarousel({ category, title }) {
           <h5 style={{ color: "white" }}>Loading....</h5>
         )}
       </Carousel>
+      {toast.status == "error" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>
   );
 }

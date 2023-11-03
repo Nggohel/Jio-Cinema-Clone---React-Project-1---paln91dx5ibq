@@ -1,20 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/WatchList.css";
+import Toaster from "../../Assets/Toaster";
 import { watchListApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
+
 function WatchList() {
   const [data, setData] = useState([]);
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
 
-  useEffect(async () => {
+  useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("user-info"));
-
-    const getData = await watchListApiData(`${ApiUrl["Watchlist"]}`, userInfo);
-    if (getData.status == "success") {
-      setData(getData.data.shows);
-    } else {
-      alert(getData.message);
-    }
+    (async () => {
+      const getData = await watchListApiData(
+        `${ApiUrl["Watchlist"]}`,
+        userInfo
+      );
+      if (getData.status == "success") {
+        setData(getData.data.shows);
+      } else {
+        setToast({
+          status: "error",
+          message: getData.message,
+        });
+      }
+    })();
   }, []);
 
   return (
@@ -38,6 +51,13 @@ function WatchList() {
           <h2 style={{ color: "white" }}>Loading....</h2>
         )}
       </div>
+      {toast.status == "success" ||
+      toast.status == "error" ||
+      toast.status == "workingOn" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>
   );
 }

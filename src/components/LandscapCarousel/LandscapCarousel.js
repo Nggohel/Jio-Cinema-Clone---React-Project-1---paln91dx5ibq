@@ -6,33 +6,31 @@ import "../../styles/LandscapCarousel.css";
 import { fetchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
+import Toaster from "../../Assets/Toaster";
 
 function LandscapCarousel({ category, title }) {
   const [data, setData] = useState([]);
 
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
+
   useEffect(() => {
     (async () => {
       const getData = await fetchApiData(
-        `${ApiUrl["ListShows"]}?filter={"type": "${category}"}&limit=1000`
+        `${ApiUrl["ListShows"]}?filter={"type": "${category}"}&limit=200`
       );
       if (getData.status == "success") {
         setData(getData.data);
       } else {
-        alert(getData.message);
+        setToast({
+          status: "error",
+          message: getData.message,
+        });
       }
     })();
   }, [category]);
-
-  // useEffect(async () => {
-  //   const getData = await fetchApiData(
-  //     `${ApiUrl["ListShows"]}?filter={"type": "${category}"}&limit=10`
-  //   );
-  //   if (getData.status == "success") {
-  //     setData(getData.data);
-  //   } else {
-  //     alert(getData.message);
-  //   }
-  // }, []);
 
   return (
     <>
@@ -77,6 +75,11 @@ function LandscapCarousel({ category, title }) {
           <h2 style={{ color: "white" }}>Loading....</h2>
         )}
       </Carousel>
+      {toast.status == "error" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>
   );
 }

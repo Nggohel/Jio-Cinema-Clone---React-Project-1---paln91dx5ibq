@@ -4,9 +4,15 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { fetchApiData } from "../../../Api/Api";
 import { ApiUrl } from "../../../Data/ApiUrl";
+import Toaster from "../../../Assets/Toaster";
+
 function Searchpage() {
   const [data, setData] = useState([]);
   const { query } = useParams();
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
 
   useEffect(() => {
     (async () => {
@@ -16,7 +22,10 @@ function Searchpage() {
       if (getData.status == "success") {
         setData(getData.data);
       } else {
-        alert(getData.message);
+        setToast({
+          status: "error",
+          message: getData.message,
+        });
       }
     })();
   }, [query]);
@@ -44,6 +53,11 @@ function Searchpage() {
             <p>No results found</p>
           )}
         </div>
+      )}
+      {toast.status == "error" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
       )}
     </>
   );

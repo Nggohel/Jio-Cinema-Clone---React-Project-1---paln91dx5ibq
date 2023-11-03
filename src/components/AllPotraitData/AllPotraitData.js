@@ -5,11 +5,17 @@ import "../../styles/AllPotraitData.css";
 import { fetchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
+import Toaster from "../../Assets/Toaster";
+
 function AllPotraitData() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const { itemcategery } = useParams();
   const { itemtitle } = useParams();
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
 
   useEffect(() => {
     // iife function
@@ -20,7 +26,10 @@ function AllPotraitData() {
       if (getData.status == "success") {
         setData((prev) => [...prev, ...getData.data]);
       } else {
-        alert(getData.message);
+        setToast({
+          status: "error",
+          message: getData.message,
+        });
       }
     })();
   }, [page]);
@@ -79,6 +88,11 @@ function AllPotraitData() {
           <h2 style={{ color: "white" }}>Loading....</h2>
         )}
       </div>
+      {toast.status == "error" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>
   );
 }

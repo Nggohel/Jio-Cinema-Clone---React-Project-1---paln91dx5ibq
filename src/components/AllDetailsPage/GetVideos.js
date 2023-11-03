@@ -1,10 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../../styles/GetVideos.css";
 import { patchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
+import Toaster from "../../Assets/Toaster";
 
 function GetVideos() {
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
+
   const { video_url } = useParams();
   const decodedUrl = decodeURIComponent(video_url);
   const videoRef = useRef(null);
@@ -19,10 +25,17 @@ function GetVideos() {
       item,
       GetData
     );
+
     if (getUpdatedData.status == "success") {
-      alert(getUpdatedData.message);
+      setToast({
+        status: "success",
+        message: getUpdatedData.message,
+      });
     } else {
-      alert(getUpdatedData.message);
+      setToast({
+        status: "error",
+        message: getUpdatedData.message,
+      });
     }
   };
 
@@ -40,6 +53,11 @@ function GetVideos() {
           Add to Watchlist
         </button>
       </div>
+      {toast.status == "success" || toast.status == "error" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>
   );
 }

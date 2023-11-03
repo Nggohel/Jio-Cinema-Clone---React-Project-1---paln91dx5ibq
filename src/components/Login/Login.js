@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "react-toastify/dist/ReactToastify.min.css";
+import Toaster from "../../Assets/Toaster";
 import "../../styles/Login.css";
 import { postApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
-import { notify } from "../../Assets/Toaster";
 
 function Login() {
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
+
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
 
   const JiocinemaLogin = async () => {
     let item = { email: email, password: password, appType: "ott" };
@@ -21,7 +25,10 @@ function Login() {
     const getLoginData = await postApiData(`${ApiUrl["Login"]}`, item);
 
     if (getLoginData.status === "success") {
-      notify("You are Logging in Successfully!", "success");
+      setToast({
+        status: "success",
+        message: "You are Logging in Successfully!",
+      });
       localStorage.setItem("user-info", JSON.stringify(getLoginData));
       setEmail("");
       setPassword("");
@@ -31,7 +38,10 @@ function Login() {
       document.body.style.overflowY = "scroll";
       document.body.style.overflowX = "hidden";
     } else {
-      notify(getLoginData.message, "error");
+      setToast({
+        status: "error",
+        message: getLoginData.message,
+      });
     }
   };
 
@@ -78,19 +88,13 @@ function Login() {
           </p>
         </p>
       </div>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        style={{ zIndex: 9999 }}
-      />
+      {toast.status == "success" ||
+      toast.status == "error" ||
+      toast.status == "workingOn" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>,
     document.getElementById("login-page")
   );

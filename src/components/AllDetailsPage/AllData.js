@@ -4,9 +4,14 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../../styles/AllPotraitData.css";
 import { fetchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
+import Toaster from "../../Assets/Toaster";
 
 function AllData() {
   const [data, setData] = useState([]);
+  const [toast, setToast] = useState({
+    status: "",
+    message: "",
+  });
 
   useEffect(() => {
     (async () => {
@@ -14,7 +19,10 @@ function AllData() {
       if (getData.status == "success") {
         setData(getData.data);
       } else {
-        alert(getData.message);
+        setToast({
+          status: "error",
+          message: getData.message,
+        });
       }
     })();
   }, []);
@@ -45,6 +53,11 @@ function AllData() {
           <h2 style={{ color: "white" }}>Loading....</h2>
         )}
       </div>
+      {toast.status == "error" ? (
+        <Toaster status={toast.status} message={toast.message} />
+      ) : (
+        ""
+      )}
     </>
   );
 }
