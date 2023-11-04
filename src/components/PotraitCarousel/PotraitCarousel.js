@@ -18,7 +18,7 @@ function PotraitCarousel({ category, title }) {
   useEffect(() => {
     (async () => {
       const getData = await fetchApiData(
-        `${ApiUrl["ListShows"]}?filter={"type": "${category}"}&limit=1000`
+        `${ApiUrl["ListShows"]}?filter={"type": "${category}"}&limit=200`
       );
       if (getData.status == "success") {
         setData(getData.data);
