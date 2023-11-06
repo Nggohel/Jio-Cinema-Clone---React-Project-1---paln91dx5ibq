@@ -21,6 +21,8 @@ function SingUp() {
     message: "",
   });
 
+  const [isAlert, setIsAlert] = useState(false);
+
   const JiocinemaSingUP = async () => {
     let item = {
       name: name,
@@ -36,14 +38,15 @@ function SingUp() {
         status: "success",
         message: "Welcome! You are SignUp in Successfully!",
       });
-
+      setIsAlert(true);
       setName("");
       setEmail("");
       setPassword("");
       setTimeout(() => {
         navigate("/login");
-      }, 1300);
+      }, 1150);
     } else {
+      setIsAlert(true);
       setToast({
         status: "error",
         message: getSingUPData.message,
@@ -72,7 +75,9 @@ function SingUp() {
             type="text"
             placeholder="Enter Your Name"
             className="singup-number-input"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setIsAlert(false), setName(e.target.value);
+            }}
             value={name}
           />
           <br></br>
@@ -80,7 +85,9 @@ function SingUp() {
             type="email"
             placeholder="Enter Your Email Id"
             className="singup-number-input"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setIsAlert(false), setEmail(e.target.value);
+            }}
             value={email}
           />
           <br></br>
@@ -88,7 +95,9 @@ function SingUp() {
             type="password"
             placeholder="Enter Your Password"
             className="singup-number-input"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setIsAlert(false), setPassword(e.target.value);
+            }}
             value={password}
           />
         </p>
@@ -106,13 +115,10 @@ function SingUp() {
           </p>
         </p>
       </div>
-      {toast.status == "success" ||
+      {/* toast.status == "success" ||
       toast.status == "error" ||
-      toast.status == "workingOn" ? (
-        <Toaster status={toast.status} message={toast.message} />
-      ) : (
-        ""
-      )}
+      toast.status == "workingOn" */}
+      {isAlert ? <Toaster status={toast.status} message={toast.message} /> : ""}
     </>,
     document.getElementById("sing-up")
   );

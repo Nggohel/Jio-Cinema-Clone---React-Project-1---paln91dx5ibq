@@ -1,5 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 import SpotPageAllData from "./SpotPageAllData";
+import { memo } from "react";
 function SpotsPageData() {
   return (
     <>
@@ -7,4 +8,4 @@ function SpotsPageData() {
     </>
   );
 }
-export default SpotsPageData;
+export default memo(SpotsPageData);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../../styles/AllPotraitData.css";
@@ -61,4 +61,4 @@ function AllData() {
     </>
   );
 }
-export default AllData;
+export default memo(AllData);

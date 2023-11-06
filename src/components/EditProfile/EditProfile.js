@@ -21,6 +21,8 @@ function EditProfile() {
     message: "",
   });
 
+  const [isAlert, setIsAlert] = useState(false);
+
   const navigate = useNavigate();
 
   const JiocinemaEdit = async () => {
@@ -41,7 +43,7 @@ function EditProfile() {
         status: "success",
         message: "Your newData is Updated!!!",
       });
-
+      setIsAlert(true);
       setName("");
       setNumber("");
       setAddress("");
@@ -53,6 +55,7 @@ function EditProfile() {
       document.body.style.overflowY = "scroll";
       document.body.style.overflowX = "hidden";
     } else {
+      setIsAlert(true);
       setToast({
         status: "error",
         message: getUpdatedData.message,
@@ -61,6 +64,7 @@ function EditProfile() {
   };
 
   async function handleProfileImageUpdate() {
+    setIsAlert(true);
     setToast({
       status: "workingOn",
       message: "currently working on this Phase !",
@@ -106,7 +110,9 @@ function EditProfile() {
               type="text"
               placeholder="Enter Your Name"
               className="editprofile-number-input"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setIsAlert(false), setName(e.target.value);
+              }}
               value={name}
             />
             <br></br>
@@ -116,7 +122,9 @@ function EditProfile() {
               type="text"
               placeholder="Enter Your Address"
               className="editprofile-number-input"
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={(e) => {
+                setIsAlert(false), setAddress(e.target.value);
+              }}
               value={address}
             />
             <br></br>
@@ -126,7 +134,9 @@ function EditProfile() {
               type="phone"
               placeholder="Enter Your Number"
               className="editprofile-number-input"
-              onChange={(e) => setNumber(e.target.value)}
+              onChange={(e) => {
+                setIsAlert(false), setNumber(e.target.value);
+              }}
               value={number}
             />
           </p>
@@ -135,9 +145,10 @@ function EditProfile() {
           Save
         </button>
       </div>
-      {toast.status == "success" ||
-      toast.status == "error" ||
-      toast.status == "workingOn" ? (
+      {(toast.status == "success" ||
+        toast.status == "error" ||
+        toast.status == "workingOn") &&
+      isAlert ? (
         <Toaster status={toast.status} message={toast.message} />
       ) : (
         ""

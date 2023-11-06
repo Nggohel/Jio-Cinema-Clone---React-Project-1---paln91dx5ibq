@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "../../styles/AllPotraitData.css";
@@ -97,4 +97,4 @@ function AllPotraitData() {
   );
 }
 
-export default AllPotraitData;
+export default memo(AllPotraitData);

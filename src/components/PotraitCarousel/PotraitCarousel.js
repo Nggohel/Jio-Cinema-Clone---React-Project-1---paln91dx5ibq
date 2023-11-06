@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -80,4 +80,4 @@ function PotraitCarousel({ category, title }) {
   );
 }
 
-export default PotraitCarousel;
+export default memo(PotraitCarousel);

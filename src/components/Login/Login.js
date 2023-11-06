@@ -18,6 +18,7 @@ function Login() {
     status: "",
     message: "",
   });
+  const [isAlert, setIsAlert] = useState(false);
 
   const JiocinemaLogin = async () => {
     let item = { email: email, password: password, appType: "ott" };
@@ -30,6 +31,7 @@ function Login() {
         message: "You are Logging in Successfully!",
       });
       localStorage.setItem("user-info", JSON.stringify(getLoginData));
+      setIsAlert(true);
       setEmail("");
       setPassword("");
       setTimeout(() => {
@@ -62,7 +64,9 @@ function Login() {
             type="email"
             placeholder="Enter Your Email Id"
             className="login-number-input"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setIsAlert(false), setEmail(e.target.value);
+            }}
             value={email}
           />
           <br></br>
@@ -70,7 +74,9 @@ function Login() {
             type="password"
             placeholder="Enter Your Password"
             className="login-number-input"
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setIsAlert(false), setPassword(e.target.value);
+            }}
             value={password}
           />
         </p>
@@ -88,13 +94,10 @@ function Login() {
           </p>
         </p>
       </div>
-      {toast.status == "success" ||
+      {/* toast.status == "success" ||
       toast.status == "error" ||
-      toast.status == "workingOn" ? (
-        <Toaster status={toast.status} message={toast.message} />
-      ) : (
-        ""
-      )}
+      toast.status == "workingOn" */}
+      {isAlert ? <Toaster status={toast.status} message={toast.message} /> : ""}
     </>,
     document.getElementById("login-page")
   );

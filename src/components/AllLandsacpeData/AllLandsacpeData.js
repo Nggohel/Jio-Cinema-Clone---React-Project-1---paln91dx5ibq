@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/AllLandsacpeData.css";
 import { fetchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
 import Toaster from "../../Assets/Toaster";
+import { memo } from "react";
 
 function AllLandscapeData() {
   const [data, setData] = useState([]);
@@ -94,4 +95,4 @@ function AllLandscapeData() {
   );
 }
 
-export default AllLandscapeData;
+export default memo(AllLandscapeData);
