@@ -18,6 +18,7 @@ function Login() {
     status: "",
     message: "",
   });
+
   const [isAlert, setIsAlert] = useState(false);
 
   const JiocinemaLogin = async () => {
@@ -36,10 +37,11 @@ function Login() {
       setPassword("");
       setTimeout(() => {
         navigate("/foryou");
-      }, 1200);
+      }, 1000);
       document.body.style.overflowY = "scroll";
       document.body.style.overflowX = "hidden";
     } else {
+      setIsAlert(true);
       setToast({
         status: "error",
         message: getLoginData.message,
