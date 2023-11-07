@@ -5,7 +5,6 @@ import { fetchApiData } from "../../Api/Api";
 import { ApiUrl } from "../../Data/ApiUrl";
 import { LogoUrl } from "../../Data/LogoUrl";
 import Toaster from "../../Assets/Toaster";
-import { memo } from "react";
 
 function AllLandscapeData() {
   const [data, setData] = useState([]);
