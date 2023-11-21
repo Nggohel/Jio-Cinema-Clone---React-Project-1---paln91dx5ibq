@@ -34,17 +34,19 @@ function SingUp() {
     const getSingUPData = await postApiData(`${ApiUrl["Signup"]}`, item);
 
     if (getSingUPData.status == "success") {
+      console.log(getSingUPData);
       setToast({
         status: "success",
         message: "Welcome! You are SignUp in Successfully!",
       });
+
       setIsAlert(true);
       setName("");
       setEmail("");
       setPassword("");
       setTimeout(() => {
         navigate("/login");
-      }, 1150);
+      }, 1000);
     } else {
       setIsAlert(true);
       setToast({

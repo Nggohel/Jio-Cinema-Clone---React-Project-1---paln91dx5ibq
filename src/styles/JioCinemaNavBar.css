@@ -13,7 +13,7 @@
 .navjiocinema {
   color: white;
   font-weight: 750;
-  font-size: 18px;
+  font-size: 19px;
 }
 .navsubcribe {
   position: relative;
@@ -196,4 +196,7 @@ nav:nth-child(2) {
     align-items: start;
     justify-content: start;
   }
+}
+a.navjiocinema.nav-link {
+  color: white !important;
 }

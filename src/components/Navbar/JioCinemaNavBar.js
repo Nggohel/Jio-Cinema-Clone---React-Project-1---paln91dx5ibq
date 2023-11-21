@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -11,9 +11,13 @@ import Image from "react-bootstrap/Image";
 import "../../styles/JioCinemaNavBar.css";
 import LoginPage from "../Loginpage/LoginPage";
 import { LogoUrl } from "../../Data/LogoUrl";
+import Searchpage from "./Pages/Searchpage";
+import useSearch from "../../use-search";
+export const srcValue = React.createContext();
 
 function JioCinemaNavBar() {
   const [expand, setExpand] = useState(false);
+  const { setSearchValue: setSearch, searchValue: searchText } = useSearch();
 
   const [mobileexpand, setMobileExpand] = useState(false);
 
@@ -39,11 +43,11 @@ function JioCinemaNavBar() {
 
   const handleSearchChange = (e) => {
     setSearchValue(e.target.value);
-
-    if (searchValue.trim() !== "") {
-      navigate(`/search/${searchValue}`);
+    if (e.target.value) {
+      navigate("/search");
     } else {
-      navigate(`/search`);
+      console.log("foryou");
+      navigate("/");
     }
   };
 
@@ -67,6 +71,11 @@ function JioCinemaNavBar() {
     };
   }, []);
 
+  // useEffect(() => {
+  //   setSearch(searchValue);
+  //   // console.log(useSearch);
+  // }, [searchValue]);
+  // console.log(searchText);
   return (
     <>
       {searchIcon ? (
@@ -183,8 +192,24 @@ function JioCinemaNavBar() {
 
       {expand ? <LoginPage setExpand={setExpand} expand={expand} /> : ""}
       {mobileexpand ? <LoginPage /> : ""}
+
+      <srcValue.Provider value={searchValue}>
+        <Searchpage />
+      </srcValue.Provider>
     </>
   );
 }
 
 export default JioCinemaNavBar;
+
+{
+  // Form.Control
+  /* // const getData = await fetchApiData(
+//   `${ApiUrl["ListShows"]}?search={"title":"${query}"}`
+// );
+// console.log(getData);
+// if (getData.status === "success") {
+//   setData(getData.data);
+// } else {
+// } */
+}

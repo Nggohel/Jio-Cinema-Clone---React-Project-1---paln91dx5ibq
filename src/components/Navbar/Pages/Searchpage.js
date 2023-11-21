@@ -1,45 +1,61 @@
-import React, { useState, useEffect } from "react";
-import AllData from "../../AllDetailsPage/AllData";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { fetchApiData } from "../../../Api/Api";
 import { ApiUrl } from "../../../Data/ApiUrl";
 import Toaster from "../../../Assets/Toaster";
+import { useDebounce } from "../../../Debounce";
+import { srcValue } from "../JioCinemaNavBar";
+// import useSearch from "../../../use-search";
 
 function Searchpage() {
   const [data, setData] = useState([]);
-  const { query } = useParams();
+  // const { searchValue: searchText } = useSearch();
+  const [debouncedValue, setDebouncedValue] = useState();
+  // const { query } = useParams();
+  // console.log(searchText);
   const [toast, setToast] = useState({
     status: "",
     message: "",
   });
 
+  const searchValue = useContext(srcValue);
+  console.log(searchValue);
+  const debouncedFetchData = useDebounce(searchValue, 1500);
+
+  const searchData = async (value) => {
+    const getData = await fetchApiData(
+      `${ApiUrl["ListShows"]}?search={"title":"${value}"}`
+    );
+    console.log(getData);
+    if (getData.status === "success") {
+      setData(getData.data);
+    } else {
+    }
+  };
+
   useEffect(() => {
-    (async () => {
-      const getData = await fetchApiData(
-        `${ApiUrl["ListShows"]}?search={"keywords":"${query}"}`
-      );
-      if (getData.status == "success") {
-        setData(getData.data);
-      } else {
-        setToast({
-          status: "error",
-          message: getData.message,
-        });
-      }
-    })();
-  }, [query]);
+    setDebouncedValue(debouncedFetchData);
+  }, [searchValue]);
+
+  useEffect(() => {
+    if (searchValue) {
+      searchData(debouncedValue);
+    }
+  }, [debouncedValue]);
+
+  // useEffect(() => {
+  //   console.log(searchText);
+  // }, [searchText]);
 
   return (
     <>
-      {query.trim() === "" ? (
-        <AllData />
+      {searchValue == "" ? (
+        ""
       ) : (
         <div className="allportrait-card">
           {data.length > 0 ? (
             data?.map((item, index) => (
               <div className="allportrait-data" key={index}>
-                {console.log("item._id:", item._id)}
                 <Link to={`/details/${item._id}`}>
                   <img
                     className="allportrait-img"

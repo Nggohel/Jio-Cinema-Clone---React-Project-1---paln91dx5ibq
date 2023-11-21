@@ -103,7 +103,7 @@ function LoginPage({ setExpand, expand }) {
               </Card.Body>
             </Card>
           </div>
-          {userInfo ? (
+          {userInfo && userInfo?.data.name ? (
             <>
               <div className="editprofile">
                 <Link to="/editprofile">
@@ -126,7 +126,7 @@ function LoginPage({ setExpand, expand }) {
           )}
           <hr class="solid"></hr>
           <h6 onClick={handleWorkingPage}>Help & Legal</h6>
-          {userInfo ? (
+          {userInfo && userInfo.data.name ? (
             <>
               <h6 className="" onClick={handleLogout}>
                 LogOut!!

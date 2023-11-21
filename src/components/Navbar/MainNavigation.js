@@ -18,10 +18,12 @@ import GetVideos from "../AllDetailsPage/GetVideos";
 import WatchList from "../WatchList/WatchList";
 import MobileSearchPage from "../MobileSearch/MobileSearch";
 import AllData from "../AllDetailsPage/AllData";
+import { SearchProvider } from "../../use-search";
 
 function MainNavigation() {
   return (
     <>
+      {/* <SearchProvider> */}
       <Router>
         <JioCinemaNavBar />
 
@@ -34,7 +36,7 @@ function MainNavigation() {
           <Route path="/tvshow" element={<TvshowPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/search/:query" element={<Searchpage />} />
-          <Route path="/search" element={<AllData />} />
+          {/* <Route path="/search" element={<AllData />} /> */}
           <Route path="/mobilesearch" element={<MobileSearchPage />} />
           <Route path="/mobilesearch/:query" element={<Searchpage />} />
           <Route
@@ -53,6 +55,7 @@ function MainNavigation() {
           <Route path="/carouseldata" element={<AllData />} />
         </Routes>
       </Router>
+      {/* </SearchProvider> */}
     </>
   );
 }
